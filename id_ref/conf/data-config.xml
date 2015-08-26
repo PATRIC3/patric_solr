@@ -1,0 +1,11 @@
+<dataConfig>
+  <dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+  <document>
+    <entity name="dict_idmap"
+            query="select uniprotkb_accession, id_type, id from app.idmapping">
+      <field column="UNIPROTKB_ACCESSION"	name="uniprotkb_accession"/>
+      <field column="ID_TYPE"			name="id_type"/>
+      <field column="ID"			name="id_value"/>
+    </entity>
+  </document>
+</dataConfig>

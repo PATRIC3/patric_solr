@@ -1,0 +1,23 @@
+##set($docId = $doc.getFieldValue('genome_info_id'))
+<tr>
+	<td>#field('id')</td>
+	<td>#field('abbreviation')</td>
+	<td>#field('name')</td>
+	<td>#field('formula')</td>
+	<td>#field('mass')</td>
+	<td>#field('source')</td>
+	<td>#field('structure')</td>
+	<td>#field('charge')</td>
+	<td>#field('is_core')</td>
+	<td>#field('is_obsolete')</td>
+	<td>#field('linked_compound')</td>
+	<td>#field('is_cofactor')</td>
+	<td>#field('deltag')</td>
+	<td>#field('deltagerr')</td>
+	<td>#field('pka')</td>
+	<td>#field('pkb')</td>
+	<td>#field('abstract_compound')</td>
+	<td>#field('comprised_of')</td>
+	<td>#field('aliases')</td>
+</tr>
+#parse('debug.vm')

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="pathway" version="1.5">
+	<fields>
+		<field name="id"			type="string"		indexed="true"	stored="true"/>
+
+		<field name="genome_id"			type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="genome_name"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="taxon_id"			type="int"		indexed="true"	stored="true"/>
+
+		<field name="sequence_id"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="accession"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="annotation"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="annotation_sort"		type="annotationType"	indexed="true"	stored="false"/>
+
+		<field name="feature_id"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="alt_locus_tag"		type="string"		indexed="true"	stored="true"/>
+		<field name="refseq_locus_tag"		type="string"		indexed="true"	stored="true"/>
+		<field name="patric_id"			type="string"		indexed="true"	stored="true"/>
+
+		<field name="gene"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="product"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="ec_number"			type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="ec_description"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="pathway_id"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="pathway_name"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="pathway_class"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+
+		<!-- grouping for counts -->		
+		<field name="genome_ec"			type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="pathway_ec"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="text"			type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
+		<field name="_version_"			type="long"		indexed="true"	stored="true"/>
+		<field name="date_inserted"		type="tdate"		indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"		type="tdate"		indexed="true"	stored="true" default="NOW"/>
+
+		<!-- privilege control -->
+		<field name="public"			type="boolean"		indexed="true"	stored="true"/>
+		<field name="owner"			type="string"		indexed="true"	stored="true"/>
+		<field name="user_read"			type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="user_write"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+	</fields>
+
+	<uniqueKey>id</uniqueKey>
+	<solrQueryParser defaultOperator="AND"/>
+
+	<copyField source="annotation"		dest="annotation_sort"/>
+
+	<!-- copy field for global search -->
+	<copyField source="genome_name"		dest="text"/>
+	<copyField source="accession"		dest="text"/>
+	<copyField source="alt_locus_tag"	dest="text"/>
+	<copyField source="gene"		dest="text"/>
+	<copyField source="product"		dest="text"/>
+	<copyField source="ec_number"		dest="text"/>
+	<copyField source="ec_description"	dest="text"/>
+	<copyField source="pathway_id"		dest="text"/>
+	<copyField source="pathway_name"	dest="text"/>
+	<copyField source="pathway_class"	dest="text"/>
+
+	<fieldType name="annotationType" class="solr.EnumField" enumsConfig="enumsConfig.xml" enumName="annotations"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

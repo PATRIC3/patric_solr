@@ -1,0 +1,10 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="enzyme_class_ref"
+			query="SELECT ec_number, description FROM sres.enzymeclass">
+			<field column="EC_NUMBER"	name="ec_number"/>
+			<field column="DESCRIPTION"	name="ec_description"/>
+		</entity>
+	</document>
+</dataConfig>

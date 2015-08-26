@@ -1,0 +1,20 @@
+##set($docId = $doc.getFieldValue('genome_info_id'))
+<tr>
+	<td>#field('genome_id')</td>
+	<td>#field('genome_name')</td>
+	<td>#field('taxon_id')</td>
+	<td>#field('antibiotic')</td>
+	<td>#field('resistance_phenotype')</td>
+	<td>#field('measurement')</td>
+	<td>#field('measurement_sign')</td>
+	<td>#field('measurement_value')</td>
+	<td>#field('measurement_unit')</td>
+	<td>#field('laboratory_typing_method')</td>
+	<td>#field('laboratory_typing_method_version')</td>
+	<td>#field('laboratory_typing_platform')</td>
+	<td>#field('vendor')</td>
+	<td>#field('testing_standard')</td>
+	<td>#field('testing_standard_year')</td>
+	<td>#field('source')</td>
+</tr>
+#parse('debug.vm')

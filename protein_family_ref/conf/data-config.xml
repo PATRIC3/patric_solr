@@ -1,0 +1,10 @@
+<dataConfig>
+  <dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+  <document>
+    <entity name="dict_figfam"
+            query="select figfam_id, function from dots.figfam">
+      <field column="FIGFAM_ID"	name="figfam_id"/>
+      <field column="FUNCTION"	name="figfam_product"/>
+    </entity>
+  </document>
+</dataConfig>

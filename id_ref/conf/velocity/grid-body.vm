@@ -1,0 +1,7 @@
+##set($docId = $doc.getFieldValue('genome_info_id'))
+<tr>
+	<td>#field('uniprotkb_accession')</td>
+	<td>#field('id_type')</td>
+	<td>#field('id_value')</td>
+</tr>
+#parse('debug.vm')

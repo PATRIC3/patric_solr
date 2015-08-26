@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Schema for Anti-microbial Resistance Metadata for Genomes -->
+<!-- Attributes: genome_id	genome_name	taxon_id	antibiotic	resistance_phenotype	
+measurement	measurement_sign	measurement_value measurement_unit
+laboratory_typing_method	laboratory_typing_platform	laboratory_typing_method_version	vendor	
+testing_standard	testing_standard_year	source	 -->
+
+<schema name="genome_amr" version="1.5">
+	<fields>
+
+		
+		<field name="id"		type="string"		indexed="true"	stored="true"/>
+		<field name="genome_id"		type="string"		indexed="true"	stored="true"/>
+		<field name="genome_name"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="taxon_id"		type="int"		indexed="true"	stored="true"/>
+		
+		<field name="antibiotic"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="resistant_phenotype"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
+		
+		<field name="measurement"		type="string"		indexed="true"	stored="true"/>
+		<field name="measurement_sign"		type="string"		indexed="true"	stored="true"/>
+		<field name="measurement_value"		type="string"		indexed="true"	stored="true"/>
+		<field name="measurement_unit"		type="string"		indexed="true"	stored="true"/>
+		
+		<field name="laboratory_typing_method"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="laboratory_typing_method_version"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="laboratory_typing_platform"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="vendor"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
+		
+		<field name="testing_standard"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="testing_standard_year"		type="int"		indexed="true"	stored="true"/>
+		<field name="source"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
+		
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
+		<field name="_version_"		type="long"		indexed="true"	stored="true"/>
+		<field name="date_inserted"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+	</fields>
+
+	<uniqueKey>id</uniqueKey>
+	<solrQueryParser defaultOperator="AND"/>
+	
+	<copyField source="genome_name"		dest="text"/>
+	<copyField source="antibiotic"		dest="text"/>
+	<copyField source="resistant_phenotype"		dest="text"/>
+	<copyField source="laboratory_typing_method"		dest="text"/>
+	<copyField source="vendor"		dest="text"/>
+	<copyField source="testing_standard"		dest="text"/>
+	<copyField source="source"		dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

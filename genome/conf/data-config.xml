@@ -1,0 +1,145 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="genome" transformer="RegexTransformer"
+				query="SELECT
+					mds.genome_id, mds.genome_info_id, mds.genome_name, mds.common_name, mds.organism_name,
+					mds.ncbi_tax_id,
+					mds.genome_status,
+					mds.strain, mds.serovar, mds.biovar, mds.pathovar, mds.mlst, mds.culture_collection, mds.type_strain,
+					case when (completion_date is null) then ''
+						when (completion_date like '20%/%/%') then to_char(to_date(completion_date,'yyyy/mm/dd'), 'yyyy-mm-dd')||'T00:00:00Z'
+						else replace(to_char(to_date(completion_date,'mm/dd/yy'),'yyyy-mm-dd'), '209', '199')||'T00:00:00Z'
+						end as completion_date,
+					mds.publication,
+					mds.ncbi_project_id, mds.refseq_project_id, mds.genbank_accessions, mds.refseq_accessions,
+					mds.sequencing_centers, mds.sequencing_status, mds.sequencing_platform, mds.sequencing_depth, mds.assembly_method,
+					mds.chromosomes, mds.plasmids, mds.contigs, mds.sequences, mds.genome_length,
+					case when regexp_like(gc_content, '^[[:digit:],.]*$') then to_number(gc_content) else null end as gc_content,
+					mds.rast_cds, mds.brc_cds, mds.refseq_cds,
+					mds.isolation_site, mds.isolation_source, mds.isolation_comments, mds.collection_date, mds.isolation_country, mds.geographic_location, mds.latitude, mds.longitude, mds.altitude, mds.depth,
+					mds.host_name, mds.host_gender, mds.host_age, mds.host_health, mds.body_sample_site, mds.body_sample_subsite,
+					mds.gram_stain,mds.cell_shape, mds.motility,mds.sporulation, mds.temperature_range, mds.optimal_temperature, mds.salinity, mds.oxygen_requirement, mds.habitat,
+					mds.disease,
+					mds.comments, 'true' as is_public, 'PATRIC' as owner
+				FROM app.p3_metadatasummary mds">
+			<field column="GENOME_ID"		name="genome_id"/>
+			<field column="GENOME_INFO_ID"		name="p2_genome_id"/>
+			<field column="GENOME_NAME"		name="genome_name"/>
+			<field column="COMMON_NAME"		name="common_name"/>
+			<field column="ORGANISM_NAME"		name="organism_name"/>
+
+			<field column="NCBI_TAX_ID"		name="taxon_id"/>
+			<entity name="TaxonLineage"	transformer="RegexTransformer" 
+				query="SELECT listagg(ncbi_tax_id,',') within group (order by node_level desc) as tx_lineage_ids,
+						listagg(name,',') within group (order by node_level desc) as tx_lineage_names
+					FROM (
+						select lng.name, lng.ncbi_tax_id, rownum as node_level
+						from (
+							select a.taxon_id, a.ncbi_tax_id, b.name, a.parent_id
+							from sres.taxon a, sres.taxonname b
+							where a.taxon_id = b.taxon_id and b.name_class = 'scientific name'
+						) lng
+						where ncbi_tax_id not in (1)
+						connect by prior parent_id = taxon_id
+						start with lng.ncbi_tax_id = ${genome.NCBI_TAX_ID}
+					)">
+				<field column="TX_LINEAGE_IDS"		name="taxon_lineage_ids"	splitBy=","	sourceColumnName="TX_LINEAGE_IDS" />
+				<field column="TX_LINEAGE_NAMES"	name="taxon_lineage_names"	splitBy=","	sourceColumnName="TX_LINEAGE_NAMES" />
+			</entity>
+			<entity name="Taxonmy"
+				query="SELECT max(decode(rank, 'species', lng.name)) as species,
+						max(decode(rank, 'genus', lng.name)) as genus,
+						max(decode(rank, 'family', lng.name)) as family,
+						max(decode(rank, 'order', lng.name)) as order_name,
+						max(decode(rank, 'class', lng.name)) as class_name,
+						max(decode(rank, 'phylum', lng.name)) as phylum,
+						max(decode(rank, 'superkingdom', lng.name)) as kingdom
+					FROM (select a.taxon_id, a.ncbi_tax_id, b.name, a.parent_id, a.rank
+						from sres.taxon a, sres.taxonname b
+						where a.taxon_id = b.taxon_id and b.name_class = 'scientific name'
+					) lng
+					WHERE rank in ('species', 'genus', 'family', 'order', 'class', 'phylum', 'superkingdom')
+					connect by prior parent_id = taxon_id
+					start with lng.ncbi_tax_id = ${genome.NCBI_TAX_ID}">
+				<field column="SPECIES"		name="species"/>
+				<field column="GENUS"		name="genus"/>
+				<field column="FAMILY"		name="family"/>
+				<field column="ORDER_NAME"	name="order"/>
+				<field column="CLASS_NAME"	name="class"/>
+				<field column="PHYLUM"		name="phylum"/>
+				<field column="KINGDOM"		name="kingdom"/>
+			</entity>
+
+			<field column="GENOME_STATUS"		name="genome_status"/>
+
+			<field column="STRAIN"			name="strain"/>
+			<field column="SEROVAR"			name="serovar"/>
+			<field column="BIOVAR"			name="biovar"/>
+			<field column="PATHOVAR"		name="pathovar"/>
+			<field column="MLST"			name="mlst"/>
+			<field column="CULTURE_COLLECTION"	name="culture_collection"/>
+			<field column="TYPE_STRAIN"		name="type_strain"/>
+
+			<field column="COMPLETION_DATE"		name="completion_date"/>
+			<field column="PUBLICATION"		name="publication"/>
+
+			<field column="NCBI_PROJECT_ID"		name="ncbi_project_id"/>
+			<field column="REFSEQ_PROJECT_ID"	name="refseq_project_id"/>
+			<field column="GENBANK_ACCESSIONS"	name="genbank_accessions"/>
+			<field column="REFSEQ_ACCESSIONS"	name="refseq_accessions"/>
+
+			<field column="SEQUENCING_CENTERS"	name="sequencing_centers"/>
+			<field column="SEQUENCING_STATUS"	name="sequencing_status"/>
+			<field column="SEQUENCING_PLATFORM"	name="sequencing_platform"/>
+			<field column="SEQUENCING_DEPTH"	name="sequencing_depth"/>
+			<field column="ASSEMBLY_METHOD"		name="assembly_method"/>
+
+			<field column="CHROMOSOMES"		name="chromosomes"/>
+			<field column="PLASMIDS"		name="plasmids"/>
+			<field column="CONTIGS"			name="contigs"/>
+			<field column="SEQUENCES"		name="sequences"/>
+			<field column="GENOME_LENGTH"		name="genome_length"/>
+			<field column="GC_CONTENT"		name="gc_content"/>
+
+			<field column="RAST_CDS"		name="patric_cds"/>
+			<field column="BRC_CDS"			name="brc1_cds"/>
+			<field column="REFSEQ_CDS"		name="refseq_cds"/>
+
+			<field column="ISOLATION_SITE"		name="isolation_site"/>
+			<field column="ISOLATION_SOURCE"	name="isolation_source"/>
+			<field column="ISOLATION_COMMENTS"	name="isolation_comments"/>
+			<field column="COLLECTION_DATE"		name="collection_date"/>
+			<field column="ISOLATION_COUNTRY"	name="isolation_country"/>
+			<field column="GEOGRAPHIC_LOCATION"	name="geographic_location"/>
+			<field column="LATITUDE"		name="latitude"/>
+			<field column="LONGITUDE"		name="longitude"/>
+			<field column="ALTITUDE"		name="altitude"/>
+			<field column="DEPTH"			name="depth"/>
+
+			<field column="HOST_NAME" 		name="host_name"/>
+			<field column="HOST_GENDER" 		name="host_gender"/>
+			<field column="HOST_AGE"		name="host_age"/>
+			<field column="HOST_HEALTH" 		name="host_health"/>
+			<field column="BODY_SAMPLE_SITE"	name="body_sample_site"/>
+			<field column="BODY_SAMPLE_SUBSITE"	name="body_sample_subsite"/>
+
+			<field column="GRAM_STAIN"		name="gram_stain"/>
+			<field column="CELL_SHAPE"		name="cell_shape"/>
+			<field column="MOTILITY"		name="motility"/>
+			<field column="SPORULATION"		name="sporulation"/>
+			<field column="TEMPERATURE_RANGE"	name="temperature_range"/>
+			<field column="OPTIMAL_TEMPERATURE"	name="optimal_temperature"/>
+			<field column="SALINITY"		name="salinity"/>
+			<field column="OXYGEN_REQUIREMENT"	name="oxygen_requirement"/>
+			<field column="HABITAT"			name="habitat"/>
+
+			<field column="DISEASE"			name="disease"	splitBy="[;,] "/>
+
+			<field column="COMMENTS"		name="comments"/>
+
+			<field column="IS_PUBLIC"		name="public"/>
+			<field column="OWNER"			name="owner"/>
+		</entity>
+	</document>
+</dataConfig>

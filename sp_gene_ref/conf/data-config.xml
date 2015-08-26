@@ -1,0 +1,49 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<script><![CDATA[
+		function parseClassification (row) {
+			if (row.get('CLS') != null) {
+				var classes = row.get('CLS').split(',');
+				var arr = new java.util.ArrayList();
+				for (var i=0; i<classes.length; i++) {
+					var cls = String(classes[i]);
+					arr.add(cls.charAt(0).toUpperCase() + cls.slice(1));
+				}
+				row.put('classification', arr);
+			}
+			if (row.get('ORGANISM') != null) {
+				var organism = row.get('ORGANISM').split(' ');
+				row.put('GENUS', organism[0]);
+				row.put('SPECIES', organism[0] + ' ' + organism[1]);
+		    }
+			return row;
+		}
+	]]></script>
+	<document>
+		<entity name="sp_gene_ref" transformer="ClobTransformer,RegexTransformer,script:parseClassification"
+			query="select
+				property, source, source_id,
+				gene_name, locus_tag, gene_id, gi, 
+				organism, 
+				product, function, classification as cls,
+				pmid, assertion
+			from app.specialty_gene">
+			<field column="PROPERTY"	name="property"/>
+			<field column="SOURCE"		name="source"/>
+			<field column="SOURCE_ID"	name="source_id"/>
+
+			<field column="GENE_NAME"	name="gene_name"/>
+			<field column="LOCUS_TAG"	name="locus_tag"/>
+			<field column="GENE_ID"		name="gene_id"/>
+			<field column="GI"		name="gi"/>
+
+			<field column="ORGANISM"	name="organism"/>
+
+			<field column="PRODUCT"		name="product"/>
+			<field column="FUNCTION"	name="function"/>
+
+			<field column="PMID"		name="pmid"/>
+			<field column="ASSERTION"	name="assertion"	clob="true" />
+		</entity>
+	</document>
+</dataConfig>

@@ -1,0 +1,16 @@
+##set($docId = $doc.getFieldValue('genome_info_id'))
+<tr>
+	<td>#field('genome_name')</td>
+	<td>#field('sid')</td>
+	<td>#field('taxon_id')</td>
+	<td>#field('accession')</td>
+	<td>#field('gi')</td>
+	<td>#field('description')</td>
+	<td>#field('length')</td>
+	<td>#field('gc_content')</td>
+	<td>#field('sequence_type')</td>
+	<td>#field('topology')</td>
+	<td>#field('date_inserted')</td>
+	<td>#field('date_modified')</td>
+</tr>
+#parse('debug.vm')

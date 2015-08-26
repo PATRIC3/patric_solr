@@ -1,0 +1,36 @@
+<dataConfig>
+  <dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+  <document>
+    <entity name="proteomics-peptide" transformer="ClobTransformer,RegexTransformer"
+            query="
+		select distinct 
+			pe.experiment_id,
+			pe.source,
+			pe.accession,
+			pe.protein_id_type,
+			pe.protein_id,
+			mp.na_feature_id,
+			mp.source_id,
+			pr.peptides,
+			pe.peptide_sequence
+		from proteomics.protein pr, proteomics.proteinmapping mp, proteomics.peptide pe
+		where pr.experiment_id = mp.experiment_id
+		  and pr.protein_id_type = mp.protein_id_type
+		  and pr.protein_id = mp.protein_id
+		  and mp.experiment_id = pe.experiment_id
+		  and mp.protein_id_type = pe.protein_id_type
+		  and mp.protein_id = pe.protein_id
+            ">
+      <field column="experiment_id" name="experiment_id"/>
+      <field column="source" name="source"/>
+      <field column="accession" name="accession"/>
+      <field column="protein_id_type" name="protein_id_type"/>
+      <field column="protein_id" name="protein_id"/>
+      <field column="na_feature_id" name="na_feature_id"/>
+      <field column="source_id" name="source_id"/>
+      <field column="peptides" name="peptides"/>
+      <field column="peptide_sequence" name="peptide_sequence"/>
+
+    </entity>
+  </document>
+</dataConfig>

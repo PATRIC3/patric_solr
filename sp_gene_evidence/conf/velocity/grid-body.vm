@@ -1,0 +1,10 @@
+##set($docId = $doc.getFieldValue('genome_info_id'))
+<tr>
+	<td>#field('source_id')</td>
+	<td>#field('pmid')</td>
+	<td>#field('assertion')</td>
+	<td>#field('classification')</td>
+	<td>#field('specific_organism')</td>
+	<td>#field('specific_host')</td>
+</tr>
+#parse('debug.vm')

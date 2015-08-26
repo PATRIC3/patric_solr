@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="gene_ontology_ref" version="1.5">
+	<fields>
+		<field name="go_id"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="go_name"		type="string"		indexed="true"	stored="true"/>
+
+		<field name="ontology"		type="string"		indexed="true"	stored="true"/>
+		<field name="definition"	type="string"		indexed="true"	stored="true"/>
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
+		<field name="_version_"		type="long"		indexed="true"	stored="true"/>
+		<field name="date_inserted"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+	</fields>
+
+	<uniqueKey>go_id</uniqueKey>
+
+	<solrQueryParser defaultOperator="AND"/>
+
+	<copyField source="go_name"	dest="text"/>
+	<copyField source="ontology"	dest="text"/>
+	<copyField source="definition"	dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

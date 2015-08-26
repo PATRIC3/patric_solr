@@ -1,0 +1,13 @@
+<thead>
+<tr>
+	<th>PATHWAY ID</th>
+	<th>PATHWAY Name</th>
+	<th>PATHWAY Class</th>
+	<th>EC Number</th>
+	<th>EC Desc</th>
+	<th>MAP Type</th>
+	<th>MAP Name</th>
+	<th>Map Location</th>
+	<th>Occurrence</th>
+</tr>
+</thead>

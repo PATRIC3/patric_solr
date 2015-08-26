@@ -1,0 +1,13 @@
+<tr>
+	<td>#field('genome_name')</td>
+	<td>#field('accession')</td>
+	<td>#field('locus_tag')</td>
+	<td>#field('annotation')</td>
+	<td>#field('gene')</td>
+	<td>#field('pathway_id')</td>
+	<td>#field('pathway_name')</td>
+	<td>#field('pathway_class')</td>
+	<td>#field('ec_number')</td>
+	<td>#field('ec_desc')</td>
+</tr>
+#parse('debug.vm')

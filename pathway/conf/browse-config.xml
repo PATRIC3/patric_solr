@@ -1,0 +1,46 @@
+<requestHandler name="/browse" class="solr.SearchHandler">
+	<lst name="defaults">
+		<str name="echoParams">explicit</str>
+		<!-- VelocityResponseWriter settings -->
+		<str name="wt">velocity</str>
+		<str name="v.template">browse</str>
+		<str name="v.layout">layout</str>
+		<str name="title">Pathway</str>
+		<!-- Query settings -->
+		<str name="defType">edismax</str>
+		<str name="qf">
+			pathway_id^1 ec_number^1 text^1
+		</str>
+		<str name="df">text</str>
+		<str name="mm">100%</str>
+		<str name="q.alt">*:*</str>
+		<str name="rows">50</str>
+		<str name="fl">*,score</str>
+		<!-- Faceting defaults -->
+		<str name="facet">on</str>
+		<str name="facet.field">annotation_sfg</str>
+		<str name="facet.field">pathway_name_sfg</str>
+		<str name="facet.field">ec_number</str>
+		<str name="facet.mincount">1</str>
+		<!-- Highlighting defaults -->
+<!--		<str name="hl">on</str>
+		<str name="hl.fl">genome_name isolation_country host disease</str>
+		<str name="hl.encoder">html</str>
+		<str name="hl.simple.pre">&lt;b&gt;</str>
+		<str name="hl.simple.post">&lt;/b&gt;</str>-->
+		<!-- Spell checking defaults -->
+		<str name="spellcheck">on</str>
+		<str name="spellcheck.extendedResults">false</str>
+		<str name="spellcheck.count">5</str>
+		<str name="spellcheck.alternativeTermCount">2</str>
+		<str name="spellcheck.maxResultsForSuggest">5</str>
+		<str name="spellcheck.collate">true</str>
+		<str name="spellcheck.collateExtendedResults">true</str>
+		<str name="spellcheck.maxCollationTries">5</str>
+		<str name="spellcheck.maxCollations">3</str>
+	</lst>
+	<!-- append spellchecking to our list of components -->
+	<arr name="last-components">
+		<str>spellcheck</str>
+	</arr>
+</requestHandler>

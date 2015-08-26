@@ -1,0 +1,17 @@
+<thead>
+<tr>
+	<th>complex_id</th>
+	<th>complex_name</th>
+	<th>complex_source</th>
+	<th>complex_type</th>
+	<th>role_id</th>
+	<th>role_name</th>
+	<th>role_type</th>
+	<th>role_source</th>
+	<th>role_aliases</th>
+	<th>role_exemplar</th>
+	<th>type</th>
+	<th>triggering</th>
+	<th>optional</th>
+</tr>
+</thead>

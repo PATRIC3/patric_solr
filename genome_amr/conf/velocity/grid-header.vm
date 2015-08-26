@@ -1,0 +1,20 @@
+<thead>
+<tr>
+	<th>genome_id</th>
+	<th>genome_name</th>
+	<th>taxon_id</th>
+	<th>antibiotic</th>
+	<th>resistance_phenotype</th>
+	<th>measurement</th>
+	<th>measurement_sign</th>
+	<th>measurement_value</th>
+	<th>measurement_unit</th>
+	<th>laboratory_typing_method</th>
+	<th>laboratory_typing_method_version</th>
+	<th>laboratory_typing_platform</th>
+	<th>vendor</th>
+	<th>testing_standard</th>
+	<th>testing_standard_year</th>
+	<th>source</th>
+</tr>
+</thead>

@@ -1,0 +1,11 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="gene_ontology_ref"
+			query="SELECT go_id, name, definition FROM sres.goterm">
+			<field column="GO_ID"		name="go_id"/>
+			<field column="NAME"		name="go_name"/>
+			<field column="DEFINITION"	name="definition"/>
+		</entity>
+	</document>
+</dataConfig>

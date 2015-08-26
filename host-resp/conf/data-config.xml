@@ -1,0 +1,94 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="host-resp" transformer="ClobTransformer,RegexTransformer"
+			query="
+			select
+					s.study_id,
+					study_title,
+					study_url,
+					study_description,
+					design_description,
+					study_factor,
+					study_pubmed_id,
+					pi_name,
+					pi_email,
+					portal_data_tag,
+					keywords,
+					supplementary_information_url,
+					gene_list_criteria,
+					gene_list_data_link,
+					gene_list_id_type,
+					a.assay_id,
+					assay_name,
+					experiment_type,
+					measurement_technique,
+					pathogen__stimulating_factor,
+					host_organism,
+					host_sublclassification,
+					biomaterial_description,
+					sample_source_type,
+					primary_data_repository,
+					id_in_public_repository,
+					contact_name,
+					contact_email,
+					gene_list_url,
+					selection_criteria,
+					status,
+					original_gene_list,
+					original_gene_list_overflow,
+					original_id_type,
+					gene_list,
+					bioset_id,
+					notes
+			from hostresponse.study s, hostresponse.assay a, hostresponse.bioset b
+			where a.study_id = s.study_id
+			  and b.assay_id = a.assay_id
+                                ">
+      <field column="study_id" name="study_id"/>
+      <field column="study_title" name="study_title"/>
+      <field column="study_url" name="study_url"/>
+      <field column="STUDY_DESCRIPTION" name="study_description" clob="true" />
+      <field column="design_description" name="design_description"/>
+      <field column="STUDY_FACTOR" name="study_factor" clob="true" />
+      <field column="study_pubmed_id" name="study_pubmed_id"/>
+      <field column="pi_name" name="pi_name"/>
+      <field column="pi_email" name="pi_email"/>
+      <field column="PORTAL_DATA_TAG" name="portal_data_tag" splitBy="\," sourceColunnName="PORTAL_DATA_TAG"/>
+      <field column="keywords" name="keywords"/>
+      <field column="supplementary_information_url" name="supplementary_information_url"/>
+      <field column="gene_list_criteria" name="gene_list_criteria"/>
+      <field column="gene_list_data_link" name="gene_list_data_link"/>
+      <field column="gene_list_id_type" name="gene_list_id_type"/>
+      <field column="assay_id" name="assay_id"/>
+      <field column="ASSAY_NAME" name="assay_name" clob="true" />
+      <field column="experiment_type" name="experiment_type"/>
+      <field column="measurement_technique" name="measurement_technique"/>
+      <field column="pathogen__stimulating_factor" name="pathogen__stimulating_factor"/>
+      <field column="host_organism" name="host_organism"/>
+      <field column="host_sublclassification" name="host_sublclassification"/>
+      <field column="BIOMATERIAL_DESCRIPTION" name="biomaterial_description" splitBy="\," sourceColunnName="BIOMATERIAL_DESCRIPTION"/>
+      <field column="sample_source_type" name="sample_source_type"/>
+      <field column="primary_data_repository" name="primary_data_repository"/>
+      <field column="id_in_public_repository" name="id_in_public_repository"/>
+      <field column="contact_name" name="contact_name"/>
+      <field column="contact_email" name="contact_email"/>
+      <field column="gene_list_url" name="gene_list_url"/>
+      <field column="selection_criteria" name="selection_criteria"/>
+      <field column="status" name="status"/>
+      <field column="ORIGINAL_GENE_LIST" name="original_gene_list" splitBy="\," sourceColumnName="ORIGINAL_GENE_LIST" clob="true" />
+      <field column="original_gene_list_overflow" name="original_gene_list_overflow"/>
+      <field column="original_id_type" name="original_id_type"/>
+      <field column="GENE_LIST" name="gene_list" splitBy="," sourceColumnName="GENE_LIST" clob="true" />
+      <field column="bioset" name="bioset"/>
+      <field column="notes" name="notes"/>
+<!--
+-->
+<!--
+			<field column="SCORE"		name="score" clob="true" />
+			<field column="LITREF"		name="litref" splitBy="\|" sourceColumnName="LITREF" clob="true" />
+			<field column="IS_HPI"		name="is_hpi"/>
+-->
+		</entity>
+	</document>
+</dataConfig>

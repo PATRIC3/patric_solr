@@ -1,0 +1,21 @@
+<thead>
+<tr>
+	<th>id</th>
+	<th>abbreviatio</th>
+	<th>name</th>
+	<th>code</th>
+	<th>stoichiometry</th>
+	<th>is_transport</th>
+	<th>equation</th>
+	<th>definition</th>
+	<th>reversibility</th>
+	<th>direction</th>
+	<th>abstract_reaction</th>
+	<th>pathways</th>
+	<th>aliases</th>
+	<th>ec_numbers</th>
+	<th>deltag</th>
+	<th>deltagerr</th>
+	<th>compound_ids</th>
+</tr>
+</thead>

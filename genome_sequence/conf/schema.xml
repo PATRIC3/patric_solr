@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="genome_sequence" version="1.5">
+	<fields>
+		<field name="genome_id"			type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="genome_name"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="taxon_id"			type="int"		indexed="true"	stored="true"/>
+
+		<field name="sequence_id"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="p2_sequence_id"		type="int"		indexed="true"	stored="true"	docValues="true"/><!-- backward compatibility, sequence_info_id -->
+		<field name="accession"			type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="gi"			type="int"		indexed="true"	stored="true"/>
+
+		<field name="sequence_type"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="topology"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="description"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="chromosome"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="plasmid"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="gc_content"		type="float"		indexed="true"	stored="true"/>
+		<field name="length"			type="int"		indexed="true"	stored="true"/>
+		<field name="sequence"			type="string"		indexed="false"	stored="true"/><!-- -->
+
+		<field name="release_date"		type="tdate"		indexed="true"	stored="true"/>
+		<field name="version"			type="int"		indexed="true"	stored="true"/>
+
+		<field name="text"			type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
+		<field name="_version_"			type="long"		indexed="true"	stored="true"/>
+
+		<field name="date_inserted"		type="tdate"		indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"		type="tdate"		indexed="true"	stored="true" default="NOW"/>
+
+		<field name="public"			type="boolean"		indexed="true"	stored="true"/>
+		<field name="owner"			type="string"		indexed="true"	stored="true"/>
+		<field name="user_read"			type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="user_write"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+	</fields>
+
+	<uniqueKey>sequence_id</uniqueKey>
+	<solrQueryParser defaultOperator="AND"/>
+
+	<!-- copy fields for global search -->
+	<copyField source="genome_name"		dest="text"/>
+	<copyField source="accession"		dest="text"/>
+	<copyField source="sequence_type"	dest="text"/>
+	<copyField source="description"		dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

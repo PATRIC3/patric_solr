@@ -1,0 +1,76 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="genome_feature" transformer="RegexTransformer"
+			query="select
+				pi.genome_id, df.genome_name, df.ncbi_tax_id,
+				df.accession as sequence_id, df.accession,
+				pi.annotation, decode(df.name, 'gene', 'pseudogene', df.name) as feature_type,
+				pi.feature_id, pi.na_feature_id, pi.alt_locus_tag, pi.seed_id,
+				pi.refseq_locus_tag, pi.protein_id,
+				pi.gene_id, pi.gi,
+				df.start_max, df.end_min, decode(is_reversed, 1, '-', '+') as strand,
+				loc.location, loc.segments,
+				decode(is_reversed, 1, df.accession ||':'||df.start_max||':-', df.accession ||':'|| df.end_min||':+') pos_group,
+				df.na_length, df.aa_length, /* df.translation, */
+				pi.gene gene_symbol, df.product,
+				ff.name as figfam_id, ec.ec, pa.pathway, go.go,
+				uniprot.uniprotkb_accession
+			from app.dnafeature df, app.p3_identifiers pi, app.p3_go go,
+				app.p3_ec ec,
+				app.p3_pathway pa,
+				app.figfamsummary ff,
+				app.p3_location loc,
+				app.p3_uniprot uniprot
+			where df.na_feature_id = pi.na_feature_id
+				and df.feature_status is null
+				/* and df.genome_info_id in (87468,226894,343809,169848,147111,152058,155631,157334,148355) */
+				and df.na_feature_id = go.na_feature_id (+)
+				and df.na_feature_id = ec.na_feature_id (+)
+				and df.na_feature_id = pa.na_feature_id (+)
+				and df.na_feature_id = ff.na_feature_id (+)
+				and df.na_feature_id = loc.na_feature_id (+)
+				and df.na_feature_id = uniprot.na_feature_id (+)">
+			<field column="GENOME_ID"		name="genome_id"/>
+			<field column="GENOME_NAME"		name="genome_name"/>
+			<field column="NCBI_TAX_ID"		name="taxon_id"/>
+
+			<field column="SEQUENCE_ID"		name="sequence_id"/>
+			<field column="ACCESSION"		name="accession"/>
+
+			<field column="ANNOTATION"		name="annotation"/>
+			<field column="FEATURE_TYPE"		name="feature_type"/>
+
+			<field column="FEATURE_ID"		name="feature_id"/>
+			<field column="NA_FEATURE_ID"		name="p2_feature_id"/>
+			<field column="ALT_LOCUS_TAG"		name="alt_locus_tag"/>
+			<field column="SEED_ID"			name="seed_id"/>
+
+			<field column="REFSEQ_LOCUS_TAG"	name="refseq_locus_tag"/>
+			<field column="PROTEIN_ID"		name="protein_id"/>
+			<field column="GENE_ID"			name="gene_id"/>
+			<field column="GI"			name="gi"/>
+
+			<field column="START_MAX"		name="start"/>
+			<field column="END_MIN"			name="end"/>
+			<field column="STRAND"			name="strand"/>
+			<field column="LOCATION"		name="location"/>
+			<field column="SEGMENTS"		name="segments"	splitBy="#"/>
+			<field column="POS_GROUP"		name="pos_group"/>
+
+			<field column="NA_LENGTH"		name="na_length"/>
+			<field column="AA_LENGTH"		name="aa_length"/>
+			<!-- na_sequence, translation, aa_sequence_md5 -->
+
+			<field column="GENE_SYMBOL"		name="gene"/>
+			<field column="PRODUCT"			name="product"/>
+
+			<field column="FIGFAM_ID"		name="figfam_id"/>
+			<field column="EC"			name="ec"		splitBy="#"/>
+			<field column="PATHWAY"			name="pathway"		splitBy="#"/>
+			<field column="GO"			name="go"		splitBy="#"/>
+
+			<field column="UNIPROTKB_ACCESSION" 	name="uniprotkb_accession"	splitBy="#"/>
+		</entity>
+	</document>
+</dataConfig>

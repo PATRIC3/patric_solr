@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="transcriptomics_sample" version="1.5">
+	<fields>
+		<field name="eid"		type="int"		indexed="true"	stored="true"/>
+		<field name="expid"		type="int"		indexed="true"	stored="true"/>
+
+		<field name="accession"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="pid"		type="int"		indexed="true"	stored="true" required="true"/>
+		<field name="samples"		type="string"		indexed="true"	stored="true"/>
+
+		<field name="expname"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="channels"		type="string"		indexed="true"	stored="true"/>
+		<field name="platform"		type="string"		indexed="true"	stored="true"/>
+		<field name="release_date"	type="tdate"		indexed="true"	stored="true"/>
+		<field name="pmid"		type="string"		indexed="true"	stored="true"/>
+
+		<field name="organism"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="strain"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="mutant"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="condition"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="timepoint"		type="string"		indexed="true"	stored="true"/>
+
+		<field name="expmean"		type="float"		indexed="true"	stored="true"/>
+		<field name="expstddev"		type="float"		indexed="true"	stored="true"/>
+		<field name="genes"		type="int"		indexed="true"	stored="true"/>
+
+		<field name="sig_log_ratio"	type="float"		indexed="true"	stored="true"/>
+		<field name="sig_z_score"	type="float"		indexed="true"	stored="true"/>
+
+		<field name="genome_ids"	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
+		<field name="_version_"		type="long"		indexed="true"	stored="true" />
+		<field name="date_inserted"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+	</fields>
+
+	<uniqueKey>pid</uniqueKey>
+	
+	<solrQueryParser defaultOperator="AND"/>
+
+	<copyField source="accession"		dest="text"/>
+	<copyField source="samples"		dest="text"/>
+	<copyField source="expname"		dest="text"/>
+	<copyField source="channels"		dest="text"/>
+	<copyField source="platform"		dest="text"/>
+	<copyField source="organism"		dest="text"/>
+	<copyField source="strain"		dest="text"/>
+	<copyField source="mutant"		dest="text"/>
+	<copyField source="condition"		dest="text"/>
+	<copyField source="timepoint"		dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

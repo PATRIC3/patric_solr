@@ -1,0 +1,38 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="transcriptomics_gene"
+			query="select xpg.eid, xpg.pid,
+					pi.genome_id, pi.feature_id, pi.seed_id, pi.alt_locus_tag, pi.refseq_locus_tag,
+					xps.accession, xps.expname, xps.pmid,
+					xps.organism, xps.strain, xps.mutant, xps.condition, xps.timepoint,
+					xpg.avg_intensity, xpg.log_ratio, xpg.z_score
+				from app.genexp_gene xpg, app.genexp_genemapping xpm, app.genexp_sample xps, app.p3_identifiers pi
+				where xpg.locustag = xpm.exp_locus_tag
+					and xpg.pid = xps.pid
+					and xpm.patric_na_feature_id = pi.na_feature_id">
+			<field column="EID"			name="eid"/>
+			<field column="PID"			name="pid"/>
+
+			<field column="GENOME_ID"		name="genome_id"/>
+			<field column="FEATURE_ID"		name="feature_id"/>
+			<field column="ALT_LOCUS_TAG"		name="alt_locus_tag"/>
+			<field column="REFSEQ_LOCUS_TAG"	name="refseq_locus_tag"/>
+			<field column="SEED_ID"			name="seed_id"/>
+
+			<field column="ACCESSION"		name="accession"/>
+			<field column="EXPNAME"			name="expname"/>
+			<field column="PMID"			name="pmid"/>
+
+			<field column="ORGANISM"		name="organism"/>
+			<field column="STRAIN"			name="strain"/>
+			<field column="MUTANT"			name="mutant"/>
+			<field column="CONDITION"		name="condition"/>
+			<field column="TIMEPOINT"		name="timepoint"/>
+
+			<field column="AVG_INTENSITY"		name="avg_intensity"/>
+			<field column="LOG_RATIO"		name="log_ratio"/>
+			<field column="Z_SCORE"			name="z_score"/>
+		</entity>
+	</document>
+</dataConfig>

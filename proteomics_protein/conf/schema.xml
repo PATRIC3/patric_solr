@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Schema for GenEXP-Experiment -->
+<schema name="example" version="1.5">
+	 <fields>
+		<field name="experiment_id"	type="string"	indexed="true"	stored="true" />
+		<field name="source"		type="string"	indexed="true"	stored="true" />
+		<field name="accession"		type="string"	indexed="true"	stored="true" />
+		<field name="genome_name"	type="string"	indexed="true"	stored="true" />
+		<field name="experiment_title"	type="string"	indexed="true"	stored="true" />
+		<field name="experiment_label"	type="string"	indexed="true"	stored="true" />
+		<field name="pubmed_id"		type="string"	indexed="true"	stored="true" />
+		<field name="taxon_id"		type="string"	indexed="true"	stored="true" />
+		<field name="taxon_name"	type="string"	indexed="true"	stored="true" />
+		<field name="na_feature_id"	type="string"	indexed="true"	stored="true" />
+		<field name="locus_tag"		type="string"	indexed="true"	stored="true" />
+		<field name="peptides"		type="string"	indexed="true"	stored="true" />
+		<field name="abundance"		type="string"	indexed="true"	stored="true" />
+		<field name="log_ratio"		type="string"	indexed="true"	stored="true" />
+		<field name="z_score"		type="string"	indexed="true"	stored="true" />
+		<field name="product"		type="string"	indexed="true"	stored="true" />
+		<field name="refseq_gene"	type="string"	indexed="true"	stored="true" />
+		<field name="refseq_locus_tag"	type="string"	indexed="true"	stored="true" />
+
+		<field name="text"		type="string"	indexed="true"	stored="false" />
+
+		<field name="_version_"		type="long"	indexed="true"	stored="true" />
+	</fields>
+	
+<!--
+	<uniqueKey>rownum</uniqueKey>
+-->
+	
+	<solrQueryParser defaultOperator="AND"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>
+

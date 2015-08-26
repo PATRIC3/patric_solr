@@ -1,0 +1,52 @@
+<requestHandler name="/browse" class="solr.SearchHandler">
+	<lst name="defaults">
+		<str name="echoParams">explicit</str>
+		<!-- VelocityResponseWriter settings -->
+		<str name="wt">velocity</str>
+		<str name="v.template">browse</str>
+		<str name="v.layout">layout</str>
+		<str name="title">Specialty Gene Mapping</str>
+		<!-- Query settings -->
+		<str name="defType">edismax</str>
+		<str name="qf">
+			text^0.5 genome_name^1.0 isolation_country^1.0 host_name^1.0 disease^1.0
+		</str>
+		<str name="df">text</str>
+		<str name="mm">100%</str>
+		<str name="q.alt">*:*</str>
+		<str name="rows">100</str>
+		<str name="fl">*,score</str>
+<!--       <str name="mlt.qf">
+			text^0.5 genome_name^1.0 isolation_country^1.0 host_name^1.0 disease^1.0
+       </str>
+       <str name="mlt.fl">text,genome_name,isolation_country,host_name,disease</str>
+       <int name="mlt.count">3</int>-->
+		<!-- Faceting defaults -->
+		<str name="facet">on</str>
+		<str name="facet.field">property_source</str>
+		<str name="facet.field">evidence</str>
+		<str name="facet.mincount">1</str>
+		<!--<str name="facet.pivot">genome_status_f,isolation_country_f</str>-->
+		<str name="facet.range.other">after</str>
+		<!-- Highlighting defaults --><!--
+		<str name="hl">on</str>
+		<str name="hl.fl">genome_name isolation_country host disease</str>
+		<str name="hl.encoder">html</str>
+		<str name="hl.simple.pre">&lt;b&gt;</str>
+		<str name="hl.simple.post">&lt;/b&gt;</str>-->
+		<!-- Spell checking defaults -->
+		<str name="spellcheck">on</str>
+		<str name="spellcheck.extendedResults">false</str>
+		<str name="spellcheck.count">5</str>
+		<str name="spellcheck.alternativeTermCount">2</str>
+		<str name="spellcheck.maxResultsForSuggest">5</str>
+		<str name="spellcheck.collate">true</str>
+		<str name="spellcheck.collateExtendedResults">true</str>
+		<str name="spellcheck.maxCollationTries">5</str>
+		<str name="spellcheck.maxCollations">3</str>
+	</lst>
+	<!-- append spellchecking to our list of components -->
+	<arr name="last-components">
+		<str>spellcheck</str>
+	</arr>
+</requestHandler>

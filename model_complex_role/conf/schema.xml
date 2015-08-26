@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Schema for Metabolic Modeling Complex Roles -->
+<!-- Attributes: complex_id	complex_name	complex_source	complex_type	role_id	role_name	role_type	role_source	role_aliases	role_exemplar	type	triggering	optional -->
+
+<schema name="model_complex_role" version="1.5">
+	<fields>
+
+		<field name="id"		type="string"		indexed="true"	stored="true"/>
+		<field name="complex_id"		type="string"		indexed="true"	stored="true"/>
+		<field name="complex_name"		type="string"		indexed="true"	stored="true"/>
+		<field name="complex_source"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="complex_type"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="role_id"		type="string"		indexed="true"	stored="true"/>
+		<field name="role_name"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="role_type"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="role_source"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="role_aliases"		type="string_ci"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="role_exemplar"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="type"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="triggering"		type="boolean"		indexed="true"	stored="true"/>
+		<field name="optional"		type="boolean"		indexed="true"	stored="true"/>
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
+		<field name="_version_"		type="long"		indexed="true"	stored="true"/>
+		<field name="date_inserted"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+	</fields>
+
+	<uniqueKey>id</uniqueKey>
+	<solrQueryParser defaultOperator="AND"/>
+	
+	<copyField source="role_name"		dest="text"/>
+	<copyField source="role_aliases"		dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

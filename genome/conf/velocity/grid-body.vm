@@ -1,0 +1,18 @@
+#set($docId = $doc.getFieldValue('genome_id'))
+<tr>
+	<td><a href="http://mshukla-960.vbi.vt.edu:8983/solr/genome/select?wt=json&indent=true&q=genome_id%3A$docId" target=_blank><b>#field('genome_id')</b></a></td>
+	<td>#field('genome_name')</td>
+	<td>#field('genome_status')</td>
+	<td>#field('chromosomes')</td>
+	<td>#field('plasmids')</td>
+	<td>#field('contigs')</td>
+	<td>#field('sequences')</td>
+	<td>#field('rast_cds')</td>
+	<td>#field('refseq_cds')</td>
+	<td>#field('isolation_country')</td>
+	<td>#field('host_name')</td>
+	<td>#field('disease')</td>
+	<td>#field('collection_date')</td>
+	<td>#short_date('completion_date')</td>
+</tr>
+#parse('debug.vm')

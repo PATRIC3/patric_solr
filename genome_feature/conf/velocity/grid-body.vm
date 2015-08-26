@@ -1,0 +1,25 @@
+##set($docId = $doc.getFieldValue('genome_info_id'))
+<tr>
+	<td>#field('genome_name')</td>
+	<td>#field('accession')</td>
+	<td>#field('locus_tag')</td>
+	<td>#field('refseq_locus_tag')</td>
+	<td>#field('gene')</td>
+	<td>#field('annotation')</td>
+	<td>#field('feature_type')</td>
+	<td>#field('start')</td>
+	<td>#field('end')</td>
+	<td>#field('na_length')</td>
+	<td>#field('strand')</td>
+	<td>#field('protein_id')</td>
+	<td>#field('aa_length')</td>
+	<td>#field('go')</td>
+	<td>#field('ec')</td>
+	<td>#field('pathway')</td>
+	<td>#field('ids')</td>
+	<td>#field('figfam_id')</td>
+	<td>#field('product')</td>
+	<td>#field('date_inserted')</td>
+	<td>#field('date_modified')</td>
+</tr>
+#parse('debug.vm')

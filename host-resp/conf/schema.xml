@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="host-resp-study" version="1.5">
+	<fields>
+		<field name="study_id" type="string" indexed="true" stored="true" />
+		<field name="study_title" type="string" indexed="true" stored="true" />
+		<field name="study_url" type="string" indexed="true" stored="true" />
+		<field name="study_description" type="string" indexed="true" stored="true" />
+		<field name="design_description" type="string" indexed="true" stored="true" />
+		<field name="study_factor" type="string" indexed="true" stored="true" />
+		<field name="study_pubmed_id" type="string" indexed="true" stored="true" />
+		<field name="pi_name" type="string" indexed="true" stored="true" />
+		<field name="pi_email" type="string" indexed="true" stored="true" />
+		<field name="portal_data_tag" type="string" indexed="true" stored="true" multiValued="true" />
+		<field name="keywords" type="string" indexed="true" stored="true" />
+		<field name="supplementary_information_url" type="string" indexed="true" stored="true" />
+		<field name="gene_list_criteria" type="string" indexed="true" stored="true" multiValued="true" />
+		<field name="gene_list_data_link" type="string" indexed="true" stored="true" />
+		<field name="gene_list_id_type" type="string" indexed="true" stored="true" />
+		<field name="assay_id" type="string" indexed="true" stored="true" />
+		<field name="assay_name" type="string" indexed="true" stored="true" />
+		<field name="experiment_type" type="string" indexed="true" stored="true" />
+		<field name="measurement_technique" type="string" indexed="true" stored="true" />
+		<field name="pathogen__stimulating_factor" type="string" indexed="true" stored="true" />
+		<field name="host_organism" type="string" indexed="true" stored="true" />
+		<field name="host_sublclassification" type="string" indexed="true" stored="true" />
+		<field name="biomaterial_description" type="string" indexed="true" stored="true" multiValued="true" />
+		<field name="sample_source_type" type="string" indexed="true" stored="true" />
+		<field name="primary_data_repository" type="string" indexed="true" stored="true" />
+		<field name="id_in_public_repository" type="string" indexed="true" stored="true" multiValued="true" />
+		<field name="contact_name" type="string" indexed="true" stored="true" />
+		<field name="contact_email" type="string" indexed="true" stored="true" />
+		<field name="gene_list_url" type="string" indexed="true" stored="true" />
+		<field name="selection_criteria" type="string" indexed="true" stored="true" />
+		<field name="status" type="string" indexed="true" stored="true" />
+		<field name="original_gene_list" type="string" indexed="true" stored="true" multiValued="true" />
+		<field name="original_gene_list_overflow" type="string" indexed="true" stored="true" />
+		<field name="original_id_type" type="string" indexed="true" stored="true" />
+		<field name="gene_list" type="string" indexed="true" stored="true" multiValued="true"/>
+		<field name="notes" type="string" indexed="true" stored="true" />
+		<field name="bioset_id" type="string" indexed="true" stored="true" />
+
+		<field name="text"		type="text_custom" indexed="true" stored="false" multiValued="true" />
+		<field name="_version_"		type="long"	   indexed="true" stored="true" />
+	</fields>
+
+<!--
+	<uniqueKey>KEY</uniqueKey>
+-->
+
+	<solrQueryParser defaultOperator="AND"/>
+
+	<copyField source="study_id" dest="text" />
+	<copyField source="study_title" dest="text" />
+	<copyField source="study_url" dest="text" />
+	<copyField source="study_description" dest="text" />
+	<copyField source="design_description" dest="text" />
+	<copyField source="study_factor" dest="text" />
+	<copyField source="study_pubmed_id" dest="text" />
+	<copyField source="pi_name" dest="text" />
+	<copyField source="pi_email" dest="text" />
+	<copyField source="portal_data_tag" dest="text" />
+	<copyField source="keywords" dest="text" />
+	<copyField source="supplementary_information_url" dest="text" />
+	<copyField source="gene_list_criteria" dest="text" />
+	<copyField source="gene_list_data_link" dest="text" />
+	<copyField source="gene_list_id_type" dest="text" />
+	<copyField source="assay_id" dest="text" />
+	<copyField source="assay_name" dest="text" />
+	<copyField source="experiment_type" dest="text" />
+	<copyField source="measurement_technique" dest="text" />
+	<copyField source="pathogen__stimulating_factor" dest="text" />
+	<copyField source="host_organism" dest="text" />
+	<copyField source="host_sublclassification" dest="text" />
+	<copyField source="biomaterial_description" dest="text" />
+	<copyField source="sample_source_type" dest="text" />
+	<copyField source="primary_data_repository" dest="text" />
+	<copyField source="id_in_public_repository" dest="text" />
+	<copyField source="contact_name" dest="text" />
+	<copyField source="contact_email" dest="text" />
+	<copyField source="gene_list_url" dest="text" />
+	<copyField source="selection_criteria" dest="text" />
+	<copyField source="status" dest="text" />
+	<copyField source="original_gene_list" dest="text" />
+	<copyField source="original_gene_list_overflow" dest="text" multiValued="true" />
+	<copyField source="original_id_type" dest="text" />
+	<copyField source="gene_list" dest="text" multiValued="true" />
+	<copyField source="notes" dest="text" />
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

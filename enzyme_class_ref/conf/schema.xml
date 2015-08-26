@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="enzyme_class_ref" version="1.5">
+	<fields>
+		<field name="ec_number"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="ec_description"	type="string"		indexed="true"	stored="true"/>
+		<field name="go"	type="string_ci"		indexed="true"	stored="true" multiValued="true"/>
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
+		<field name="_version_"		type="long"		indexed="true"	stored="true"/>
+		<field name="date_inserted"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+	</fields>
+
+	<uniqueKey>ec_number</uniqueKey>
+
+	<solrQueryParser defaultOperator="AND"/>
+
+	<copyField source="ec_number"	dest="text"/>
+	<copyField source="ec_description"	dest="text"/>
+	<copyField source="go"	dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

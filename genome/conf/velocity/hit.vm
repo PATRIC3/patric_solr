@@ -1,0 +1,11 @@
+#set($docId = $doc.getFieldValue('genome_info_id'))
+
+<div class="result-document">
+#if($doc.getFieldValue('genome_name'))
+  #parse("genome.vm")
+#elseif($doc.getFieldValue('compName_s'))
+  #parse("join-doc.vm")
+#else
+  #parse("richtext-doc.vm")
+#end
+</div>

@@ -1,0 +1,21 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="sp_gene_evidence"
+			query="select property, source, source_id,
+				pmid, assertion,
+				classification, specific_organism, specific_host     
+			from app.specialty_gene_evidence">
+		      <field column="PROPERTY"		name="property"/>
+		      <field column="SOURCE"		name="source"/>
+		      <field column="SOURCE_ID"		name="source_id"/>
+
+		      <field column="PMID"		name="pmid"/>
+		      <field column="ASSERTION"		name="assertion"/>
+
+		      <field column="CLASSIFICATION"	name="classification"/>
+		      <field column="SPECIFIC_ORGANISM"	name="specific_organism"/>
+		      <field column="SPECIFIC_HOST"	name="specific_host"/>
+		</entity>
+	</document>
+</dataConfig>

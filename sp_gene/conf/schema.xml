@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="sp_gene" version="1.5">
+	<fields>
+		<field name="id"		type="uuid"	indexed="true"	stored="true"	required="false"/>
+
+		<field name="genome_id"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="genome_name"	type="string"	indexed="true"	stored="true"/>
+		<field name="taxon_id"		type="int"	indexed="true"	stored="true"/>
+
+		<field name="feature_id"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="alt_locus_tag"	type="string"	indexed="true"	stored="true"/>
+		<field name="refseq_locus_tag"	type="string"	indexed="true"	stored="true"/>
+		<field name="patric_id"		type="string"	indexed="true"	stored="true"/>
+
+		<field name="gene"		type="string"	indexed="true"	stored="true"/>
+		<field name="product"		type="string"	indexed="true"	stored="true"/>
+
+		<field name="property"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="source"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="property_source"	type="string"	indexed="true"	stored="true"/><!-- remove ? -->
+
+		<field name="source_id"		type="string"	indexed="true"	stored="true"/>
+		<field name="organism"		type="string"	indexed="true"	stored="true"/>
+		<field name="function"		type="string"	indexed="true"	stored="true"/>
+		<field name="classification"	type="string"	indexed="true"	stored="true"/>
+
+		<field name="pmid"		type="string"	indexed="true"	stored="true"/>
+		<field name="assertion"		type="string"	indexed="true"	stored="false"/>
+
+		<field name="query_coverage"	type="int"	indexed="true"	stored="true"/>
+		<field name="subject_coverage"	type="int"	indexed="true"	stored="true"/>
+		<field name="identity"		type="int"	indexed="true"	stored="true"/>
+		<field name="e_value"		type="string"	indexed="true"	stored="true"/>
+
+		<field name="same_species"	type="int"	indexed="true"	stored="true"/>
+		<field name="same_genus"	type="int"	indexed="true"	stored="true"/>
+		<field name="same_genome"	type="int"	indexed="true"	stored="true"/>
+		<field name="evidence"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false" multiValued="true"/>
+		<field name="_version_"		type="long"	indexed="true"	stored="true"/>
+		<field name="date_inserted"	type="tdate"	indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"	type="tdate"	indexed="true"	stored="true" default="NOW"/>
+
+		<!-- privilege control -->
+		<field name="public"			type="boolean"		indexed="true"	stored="true"/>
+		<field name="owner"			type="string"		indexed="true"	stored="true"/>
+		<field name="user_read"			type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="user_write"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+	</fields>
+
+	<uniqueKey>id</uniqueKey>
+
+	<solrQueryParser defaultOperator="AND"/>
+
+	<copyField source="genome_name"		dest="text"/>
+	<copyField source="alt_locus_tag"	dest="text"/>
+	<copyField source="refseq_locus_tag"	dest="text"/>
+	<copyField source="gene"		dest="text"/>
+	<copyField source="product"		dest="text"/>
+	<copyField source="property"		dest="text"/>
+	<copyField source="source"		dest="text"/>
+	<copyField source="source_id"		dest="text"/>
+	<copyField source="organism"		dest="text"/>
+	<copyField source="function"		dest="text"/>
+	<copyField source="classification"	dest="text"/>
+	<copyField source="assertion"		dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

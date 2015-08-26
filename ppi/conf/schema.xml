@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Schema for PIG -->
+<schema name="example" version="1.5">
+	<fields>
+		<field name="interaction_id"	type="string"	indexed="true" stored="true" />
+		<field name="interactor_a"	type="string"	indexed="true" stored="true" />
+		<field name="primary_id_a"	type="string"	indexed="true" stored="true" />
+		<field name="brc_ids_a"		type="string"	indexed="true" stored="true" multiValued="true" />
+		<field name="annotation_a"	type="string"	indexed="true" stored="true" />
+		<field name="taxid_a"		type="int"	indexed="true" stored="true" />
+		<field name="taxon_a"		type="string"	indexed="true" stored="true" />
+		<field name="group_a"		type="string"	indexed="true" stored="true" />
+		<field name="interactor_b"	type="string"	indexed="true" stored="true" />
+		<field name="primary_id_b"	type="string"	indexed="true" stored="true" />
+		<field name="brc_ids_b"		type="string"	indexed="true" stored="true" multiValued="true" />
+		<field name="annotation_b"	type="string"	indexed="true" stored="true" />
+		<field name="taxid_b"		type="int"	indexed="true" stored="true" />
+		<field name="taxon_b"		type="string"	indexed="true" stored="true" />
+		<field name="group_b"		type="string"	indexed="true" stored="true" />
+		<field name="type_id"		type="string"	indexed="true" stored="true" />
+		<field name="type_name"		type="string"	indexed="true" stored="true" />
+		<field name="method_id"		type="string"	indexed="true" stored="true" />
+		<field name="method_name"	type="string"	indexed="true" stored="true" />
+		<field name="repository_id"	type="string"	indexed="true" stored="true" />
+		<field name="repository_name"	type="string"	indexed="true" stored="true" />
+		<field name="id_in_repository"	type="string"	indexed="true" stored="true" multiValued="true" />
+		<field name="litref"		type="string"	indexed="true" stored="true" multiValued="true" />
+		<field name="score"		type="string"	indexed="true" stored="true" />
+		<field name="is_hpi"		type="string"	indexed="true" stored="true" />
+		<field name="xref_a"		type="string"	indexed="true" stored="true" multiValued="true" />
+		<field name="xref_b"		type="string"	indexed="true" stored="true" multiValued="true" />
+		<field name="taxpath_a"		type="string"	indexed="true" stored="true" />
+		<field name="taxpath_b"		type="string"	indexed="true" stored="true" />
+
+		<field name="text"		type="text_custom" indexed="true" stored="false" multiValued="true" />
+		<field name="_version_"		type="long"	indexed="true" stored="true" />
+	</fields>
+
+	<uniqueKey>interaction_id</uniqueKey>
+
+	<solrQueryParser defaultOperator="AND"/>
+
+	<copyField source="annotation_a"	dest="text"/>
+	<copyField source="annotation_b"	dest="text"/>
+	<copyField source="type_name"		dest="text"/>
+	<copyField source="method_name"		dest="text"/>
+	<copyField source="repository_name"	dest="text"/>
+	<copyField source="litref"		dest="text"/>
+	<copyField source="taxon_a"		dest="text"/>
+	<copyField source="taxon_b"		dest="text"/>
+	<copyField source="xref_a"		dest="text"/>
+	<copyField source="xref_b"		dest="text"/>
+
+	<copyField source="brc_ids_a"		dest="text"/>
+	<copyField source="brc_ids_b"		dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

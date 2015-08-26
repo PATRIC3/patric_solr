@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="genome_feature" version="1.5">
+	<fields>
+		<field name="genome_id"			type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="genome_name"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="taxon_id"			type="int"		indexed="true"	stored="true"/>
+
+		<field name="sequence_id"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="accession"			type="string"		indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="annotation"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="annotation_sort"		type="annotationType"	indexed="true"	stored="false"/>
+		<field name="feature_type"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="feature_id"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="p2_feature_id"		type="long"		indexed="true"	stored="true"/><!-- backward compatibility, na_feature_id -->
+		<field name="alt_locus_tag"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="patric_id"			type="string"		indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="refseq_locus_tag"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="protein_id"		type="string"		indexed="true"	stored="true"/>
+		<field name="gene_id"			type="long"		indexed="true"	stored="true"/>
+		<field name="gi"			type="long"		indexed="true"	stored="true"/>
+
+		<field name="start"			type="int"		indexed="true"	stored="true"/>
+		<field name="end"			type="int"		indexed="true"	stored="true"/>
+		<field name="strand"			type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="location"			type="string"		indexed="true"	stored="true"/>
+		<field name="segments"			type="string"		indexed="true"	stored="true"	multiValued="true"/>
+		<field name="pos_group"			type="string"		indexed="true"	stored="true"	docValues="true"/><!-- for backward compatibility, remove later -->
+
+		<field name="na_length"			type="int"		indexed="true"	stored="true"/>
+		<field name="aa_length"			type="int"		indexed="true"	stored="true"/>
+		<field name="na_sequence"		type="string"		indexed="false"	stored="true"/>
+		<field name="aa_sequence"		type="string"		indexed="false"	stored="true"/>
+		<field name="aa_sequence_md5"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="gene"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="product"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="figfam_id"			type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="ec"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="pathway"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="go"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+
+		<field name="uniprotkb_accession"	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+
+		<field name="text"			type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
+		<field name="_version_"			type="long"		indexed="true"	stored="true"/>
+		<field name="date_inserted"		type="tdate"		indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"		type="tdate"		indexed="true"	stored="true" default="NOW"/>
+
+		<field name="public"			type="boolean"		indexed="true"	stored="true"/>
+		<field name="owner"			type="string"		indexed="true"	stored="true"/>
+		<field name="user_read"			type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="user_write"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+
+                <!-- data api support -->
+		<field name="document_type"             type="string"           indexed="true"  stored="true"   docValues="true"/>
+		<field name="document_id"               type="string"           indexed="true"  stored="true"/>
+	</fields>
+
+	<uniqueKey>feature_id</uniqueKey>
+	<solrQueryParser defaultOperator="AND"/>
+
+	<copyField source="annotation"		dest="annotation_sort"/>
+
+	<!-- copy field for global search -->
+	<copyField source="genome_name"		dest="text"/>
+	<copyField source="accession"		dest="text"/>
+	<copyField source="annotation"		dest="text"/>
+	<copyField source="feature_type"	dest="text"/>
+	<copyField source="alt_locus_tag"	dest="text"/>
+	<copyField source="patric_id"		dest="text"/>
+	<copyField source="gene"		dest="text"/>
+	<copyField source="product"		dest="text"/>
+	<copyField source="refseq_locus_tag"	dest="text"/>
+	<copyField source="protein_id"		dest="text"/>
+	<copyField source="figfam_id"		dest="text"/>
+	<copyField source="ec"			dest="text"/>
+	<copyField source="pathway"		dest="text"/>
+	<copyField source="go"			dest="text"/>
+	<copyField source="uniprotkb_accession"	dest="text"/>
+
+	<fieldType name="annotationType" class="solr.EnumField" enumsConfig="enumsConfig.xml" enumName="annotations"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

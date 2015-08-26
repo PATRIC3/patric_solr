@@ -1,0 +1,18 @@
+##set($docId = $doc.getFieldValue('genome_info_id'))
+<tr>
+complex_id  complex_name  complex_source  complex_type  role_id role_name role_type role_source role_aliases  role_exemplar type  triggering  optional
+	<td>#field('complex_id')</td>
+	<td>#field('complex_name')</td>
+	<td>#field('complex_source')</td>
+	<td>#field('complex_type')</td>
+	<td>#field('role_id')</td>
+	<td>#field('role_name')</td>
+	<td>#field('role_type')</td>
+	<td>#field('role_source')</td>
+	<td>#field('role_aliases')</td>
+	<td>#field('role_exemplar')</td>
+	<td>#field('type')</td>
+	<td>#field('triggering')</td>
+	<td>#field('optional')</td>
+</tr>
+#parse('debug.vm')

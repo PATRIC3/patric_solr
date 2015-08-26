@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="proteomics-peptide">
+	 <fields>
+		<field name="experiment_id" type="int" indexed="true" stored="true" />
+		<field name="source" type="string" indexed="true" stored="true" />
+		<field name="accession" type="string" indexed="true" stored="true" />
+		<field name="protein_id_type" type="string" indexed="true" stored="true" />
+		<field name="protein_id" type="string" indexed="true" stored="true" />
+		<field name="na_feature_id" type="int" indexed="true" stored="true" />
+		<field name="source_id" type="string" indexed="true" stored="true" />
+		<field name="peptides" type="string" indexed="true" stored="true" />
+		<field name="peptide_sequence" type="string" indexed="true" stored="true" />
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true" />
+		<field name="_version_"		type="long"		indexed="true"	stored="true"	multiValued="false" />
+		<field name="date_inserted"	type="tdate"		indexed="true"	stored="true" default="NOW" />
+		<field name="date_modified"	type="tdate"		indexed="true"	stored="true" default="NOW" />
+	</fields>
+	
+	<solrQueryParser defaultOperator="AND"/>
+
+	<copyField source="experiment_id" dest="text" />
+	<copyField source="source" dest="text" />
+	<copyField source="accession" dest="text" />
+	<copyField source="protein_id_type" dest="text" />
+	<copyField source="protein_id" dest="text" />
+	<copyField source="na_feature_id" dest="text" />
+	<copyField source="source_id" dest="text" />
+	<copyField source="peptides" dest="text" />
+	<copyField source="peptide_sequence" dest="text" />
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

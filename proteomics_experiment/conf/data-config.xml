@@ -1,0 +1,56 @@
+<dataConfig>
+  <dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+  <document>
+    <entity name="proteomics-experiment" transformer="ClobTransformer,RegexTransformer"
+            query="
+              select
+                experiment_id,
+                source,
+                accession,
+                experiment_title,
+                experiment_label,
+                experiment_type,
+                sample_name,
+                sample_description,
+                taxon_id,
+                taxon_name,
+                project_id,
+                project_name,
+                pubmed_id,
+                contact_name,
+                contact_details,
+                institution,
+                organism,
+                strain,
+                condition,
+                time_point,
+                fraction,
+                status,
+                proteins
+              from proteomics.experiment ">
+      <field column="experiment_id" name="experiment_id"/>
+      <field column="source" name="source"/>
+      <field column="accession" name="accession"/>
+      <field column="experiment_title" name="experiment_title"/>
+      <field column="experiment_label" name="experiment_label"/>
+      <field column="experiment_type" name="experiment_type"/>
+      <field column="sample_name" name="sample_name"/>
+      <field column="sample_description" name="sample_description"/>
+      <field column="taxon_id" name="taxon_id"/>
+      <field column="taxon_name" name="taxon_name"/>
+      <field column="project_id" name="project_id"/>
+      <field column="project_name" name="project_name"/>
+      <field column="pubmed_id" name="pubmed_id"/>
+      <field column="contact_name" name="contact_name"/>
+      <field column="contact_details" name="contact_details"/>
+      <field column="institution" name="institution"/>
+      <field column="organism" name="organism"/>
+      <field column="strain" name="strain"/>
+      <field column="condition" name="condition"/>
+      <field column="time_point" name="time_point"/>
+      <field column="fraction" name="fraction"/>
+      <field column="status" name="status"/>
+      <field column="proteins" name="proteins"/>
+    </entity>
+  </document>
+</dataConfig>

@@ -1,0 +1,71 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="pig" transformer="ClobTransformer,RegexTransformer"
+			query="
+				select
+					interaction_id,
+					interactor_a,
+					primary_id_a,
+					brc_ids_a,
+					annotation_a,
+					taxid_a,
+					taxon_a,
+					group_a,
+					interactor_b,
+					primary_id_b,
+					brc_ids_b,
+					annotation_b,
+					taxid_b,
+					taxon_b,
+					group_b,
+					type_id,
+					type_name,
+					method_id,
+					method_name,
+					repository_id,
+					repository_name,
+					id_in_repository,
+					litref,
+					score,
+					is_hpi,
+					xref_a,
+					xref_b,
+					a.path as taxpath_a,
+					b.path as taxpath_b,
+					rownum
+				from pig3.pig3_v, pig3.pig_taxonomy a, pig3.pig_taxonomy b
+				where taxid_a = a.taxon_id and taxid_b = b.taxon_id">
+			<field column="INTERACTION_ID"	name="interaction_id"/>
+			<field column="INTERACTOR_A"	name="interactor_a"/>
+			<field column="PRIMARY_ID_A"	name="primary_id_a"/>
+			<field column="BRC_IDS_A"	name="brc_ids_a" clob="true" splitBy="," sourceColumnName="BRC_IDS_A" />
+			<field column="ANNOTATION_A"	name="annotation_a"/>
+			<field column="TAXID_A"		name="taxid_a"/>
+			<field column="TAXON_A"		name="taxon_a"/>
+			<field column="GROUP_A"		name="group_a"/>
+			<field column="INTERACTOR_B"	name="interactor_b"/>
+			<field column="PRIMARY_ID_B"	name="primary_id_b"/>
+			<field column="BRC_IDS_B"	name="brc_ids_b" clob="true" splitBy="," sourceColumnName="BRC_IDS_B" />
+			<field column="ANNOTATION_B"	name="annotation_b"/>
+			<field column="TAXID_B"		name="taxid_b"/>
+			<field column="TAXON_B"		name="taxon_b"/>
+			<field column="GROUP_B"		name="group_b"/>
+			<field column="TYPE_ID"		name="type_id"/>
+			<field column="TYPE_NAME"	name="type_name"/>
+			<field column="METHOD_ID"	name="method_id"/>
+			<field column="METHOD_NAME"	name="method_name"/>
+			<field column="REPOSITORY_ID"	name="repository_id"/>
+			<field column="REPOSITORY_NAME"	name="repository_name"/>
+			<field column="ID_IN_REPOSITORY" name="id_in_repository"	splitBy="\|"	sourceColumnName="ID_IN_REPOSITORY" />
+			<field column="LITREF"		name="litref"	splitBy="\|"	sourceColumnName="LITREF" clob="true" />
+			<field column="SCORE"		name="score" clob="true"/>
+			<field column="IS_HPI"		name="is_hpi"/>
+			<field column="XREF_A"		name="xref_a"	splitBy="\|"	sourceColumnName="XREF_A" />
+			<field column="XREF_B"		name="xref_b"	splitBy="\|"	sourceColumnName="XREF_B" />
+			<field column="TAXPATH_A"	name="taxpath_a"/>
+			<field column="TAXPATH_B"	name="taxpath_b"/>
+			<field column="ROWNUM"		name="rownum"/>
+		</entity>
+	</document>
+</dataConfig>

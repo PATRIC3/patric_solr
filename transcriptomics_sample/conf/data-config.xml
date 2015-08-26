@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="transcriptomics_sample"
+			query="select gs.eid, ge.expid,
+					gs.accession,
+					gs.pid, gs.samples,
+					gs.expname, gs.channels,  gs.platform,
+					case when (gs.release_date is null) then ''
+						else to_char(gs.release_date,'yyyy-mm-dd')||'T00:00:00Z'
+						end as release_date, gs.pmid,
+					gs.organism, gs.strain, gs.mutant, gs.condition, gs.timepoint,
+					gs.expmean, gs.expstddev, gs.genes,
+					gs.sig_log_ratio, gs.sig_z_score
+				from app.genexp_sample gs, app.genexp_experiment ge
+				where gs.eid = ge.eid ">
+			<field column="EID"		name="eid"/>
+			<field column="EXPID"		name="expid"/>
+
+			<field column="ACCESSION"	name="accession"/>
+
+			<field column="PID"		name="pid"/>
+			<field column="SAMPLES"		name="samples"/>
+
+			<field column="EXPNAME"		name="expname"/>
+			<field column="CHANNELS"	name="channels"/>
+			<field column="PLATFORM"	name="platform"/>
+			<field column="RELEASE_DATE"	name="release_date"/>
+			<field column="PMID"		name="pmid"/>
+
+			<field column="ORGANISM"	name="organism"/>
+			<field column="STRAIN"		name="strain"/>
+			<field column="MUTANT"		name="mutant"/>
+			<field column="CONDITION"	name="condition"/>
+			<field column="TIMEPOINT"	name="timepoint"/>
+
+			<field column="EXPMEAN"		name="expmean"/>
+			<field column="EXPSTDDEV"	name="expstddev"/>
+			<field column="GENES"		name="genes"/>
+
+			<field column="SIG_LOG_RATIO"	name="sig_log_ratio"/>
+			<field column="SIG_Z_SCORE"	name="sig_z_score"/>
+			<entity name="genome_ids" transformer="RegexTransformer"
+				query="SELECT distinct eid, pid,
+						listagg(gp.PSEED_ID, ',') within group (order by gp.pseed_id) as genome_ids
+					FROM app.genexp_genomemapping gg, app.gid_pseed gp
+					WHERE gg.genome_info_id = gp.genome_info_id and eid=${transcriptomics_sample.EID} and pid=${transcriptomics_sample.PID}
+					GROUP BY eid, pid">
+				<field column="GENOME_IDS"  name="genome_ids" splitBy="," />
+			</entity>
+		</entity>
+	</document>
+</dataConfig>

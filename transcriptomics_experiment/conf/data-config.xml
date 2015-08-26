@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="transcriptomics_experiment" transformer="ClobTransformer,RegexTransformer"
+			query="SELECT eid, expid,
+					accession,
+					institution, pi, author, pmid,
+					case when (release_date is null) then ''
+						else to_char(release_date,'yyyy-mm-dd')||'T00:00:00Z'
+						end as release_date,
+					title, description,
+					organism, strain, mutant, condition, timeseries,
+					samples, platforms, genes
+				FROM app.genexp_experiment">
+			<field column="EID" 		name="eid"/>
+			<field column="EXPID"		name="expid"/>
+
+			<field column="ACCESSION"	name="accession"/>
+
+			<field column="INSTITUTION"	name="institution"/>
+			<field column="PI"		name="pi"/>
+			<field column="AUTHOR"		name="author"/>
+			<field column="PMID"		name="pmid"/>
+			<field column="RELEASE_DATE"	name="release_date"/>
+
+			<field column="TITLE"		name="title"/>
+			<field column="DESCRIPTION"	name="description"	clob="true"/>
+
+			<field column="ORGANISM"	name="organism"		splitBy=","/>
+			<field column="STRAIN"		name="strain"		splitBy=","/>
+			<field column="MUTANT"		name="mutant"		splitBy=",|/"/>
+			<field column="CONDITION"	name="condition"	splitBy=","/>
+			<field column="TIMESERIES"	name="timeseries"	splitBy=","/>
+
+			<field column="SAMPLES"		name="samples"/>
+			<field column="PLATFORMS"	name="platforms"/>
+			<field column="GENES"		name="genes"/>
+
+			<entity name="genome_ids" transformer="RegexTransformer"
+				query="SELECT eid,
+						listagg(GENOME_ID, ',') within group (order by genome_id) as genome_ids
+					FROM (select distinct eid, gp.pseed_id genome_id from app.genexp_genomemapping gg, app.gid_pseed gp
+							WHERE gg.genome_info_id = gp.genome_info_id and gg.eid=${transcriptomics_experiment.EID})
+					GROUP BY eid">
+				<field column="GENOME_IDS"	name="genome_ids"	splitBy="," />
+			</entity>
+		</entity>
+	</document>
+</dataConfig>

@@ -1,0 +1,51 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="pathway"
+			query="select pi.genome_id, df.genome_name, df.ncbi_tax_id,
+					df.accession as sequence_id, df.accession,
+					pi.annotation,
+					pi.feature_id, pi.alt_locus_tag, pi.refseq_locus_tag, pi.seed_id,
+					pi.gene, df.product,
+					ps.ec_number, ps.ec_name,
+					ps.pathway_id, ps.pathway_name, substr(ps.pathway_class, instr(ps.pathway_class, '; ')+2, length(ps.pathway_class)) as pathway_class,
+					pi.genome_id || '_' || ps.ec_number as genome_ec, ps.pathway_id || '_' || ps.ec_number as pathway_ec,
+					'true' as is_public, 'PATRIC' as owner
+				from app.dnafeature df, app.pathwaysummary ps, app.p3_identifiers pi
+				where df.na_feature_id = ps.na_feature_id
+					and df.na_feature_id = pi.na_feature_id
+					and df.name = 'CDS'
+					and df.feature_status is null
+					/* and ps.genome_info_id in (87468,226894,343809,169848,147111,152058,155631,157334,148355) */">
+			<field column="GENOME_ID"	name="genome_id"/>
+			<field column="GENOME_NAME"	name="genome_name"/>
+			<field column="NCBI_TAX_ID"	name="taxon_id"/>
+
+			<field column="SEQUENCE_ID"	name="sequence_id"/>
+			<field column="ACCESSION"	name="accession"/>
+
+			<field column="ANNOTATION"	name="annotation"/>
+
+			<field column="FEATURE_ID"	name="feature_id"/>
+			<field column="ALT_LOCUS_TAG"	name="alt_locus_tag"/>
+			<field column="REFSEQ_LOCUS_TAG" name="refseq_locus_tag"/>
+			<field column="SEED_ID"		name="seed_id"/>
+
+			<field column="GENE"		name="gene"/>
+			<field column="PRODUCT"		name="product"/>
+
+			<field column="EC_NUMBER"	name="ec_number"/>
+			<field column="EC_NAME"		name="ec_description"/>
+
+			<field column="PATHWAY_ID"	name="PATHWAY_ID"/>
+			<field column="PATHWAY_CLASS"	name="PATHWAY_CLASS"/>
+			<field column="PATHWAY_NAME"	name="PATHWAY_NAME"/>
+
+			<field column="GENOME_EC"	name="genome_ec"/>
+			<field column="PATHWAY_EC"	name="pathway_ec"/>
+
+			<field column="IS_PUBLIC"	name="public"/>
+			<field column="OWNER"		name="owner"/>
+		</entity>
+	</document>
+</dataConfig>

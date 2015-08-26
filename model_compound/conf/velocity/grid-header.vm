@@ -1,0 +1,23 @@
+<thead>
+<tr>
+	<th>id</th>
+	<th>abbreviation</th>
+	<th>name</th>
+	<th>formula</th>
+	<th>mass</th>
+	<th>source</th>
+	<th>structure</th>
+	<th>charge</th>
+	<th>is_core</th>
+	<th>is_obsolete</th>
+	<th>linked_compound</th>
+	<th>is_cofactor</th>
+	<th>deltag</th>
+	<th>deltagerr</th>
+	<th>pka</th>
+	<th>pkb</th>
+	<th>abstract_compound</th>
+	<th>comprised_of</th>
+	<th>aliases</th>
+</tr>
+</thead>

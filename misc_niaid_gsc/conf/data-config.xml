@@ -1,0 +1,23 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="misc_niaid_gsc" transformer="RegexTransformer"
+			query="select
+					target_id, target_status, selection_criteria,
+					genus, species, strain,
+					has_clones, has_proteins, gene_symbol_collection
+				from app.sgcid">
+			<field column="TARGET_ID"		name="target_id"/>
+			<field column="TARGET_STATUS"		name="target_status"/>
+			<field column="SELECTION_CRITERIA"	name="selection_criteria"/>
+
+			<field column="GENUS"			name="genus"/>
+			<field column="SPECIES"			name="species"/>
+			<field column="STRAIN"			name="strain"/>
+
+			<field column="HAS_CLONES"		name="has_clones"/>
+			<field column="HAS_PROTEINS"		name="has_proteins"/>
+			<field column="GENE_SYMBOL_COLLECTION"	name="gene_symbol_collection"	splitBy=","/>
+		</entity>
+	</document>
+</dataConfig>

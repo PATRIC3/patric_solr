@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="genome" version="1.5">
+	 <fields>
+		<field name="genome_id"			type="string"		indexed="true"	stored="true"/>
+		<field name="p2_genome_id"		type="int"		indexed="true"	stored="true"/><!-- backward compatibility, genome_info_id -->
+		<field name="genome_name"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="common_name"		type="string"		indexed="true"	stored="true"/><!-- file name -->
+		<field name="organism_name" 		type="string_ci"	indexed="true"	stored="true"	docValues="true"/><!-- change name later, original genome name from source -->
+
+		<!-- taxonomy -->
+		<field name="taxon_id"			type="int"		indexed="true"	stored="true"/>
+		<field name="taxon_lineage_ids"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="taxon_lineage_names"	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+
+		<field name="kingdom"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="phylum"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="class"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="order"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="family"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="genus"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="species"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="genome_status"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="strain"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="serovar"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="biovar"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="pathovar"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="mlst"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="other_typing"			type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
+		
+		<field name="culture_collection"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="type_strain"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="reference_genome"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="completion_date"		type="tdate"		indexed="true"	stored="true"/>
+		<field name="publication"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="bioproject_accession"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="biosample_accession"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="assembly_accession"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="sra_accession"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="ncbi_project_id"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="refseq_project_id"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="genbank_accessions"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="refseq_accessions"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		
+		<field name="sequencing_centers"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="sequencing_status"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="sequencing_platform"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="sequencing_depth"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="assembly_method"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		
+		<!-- genome statistics -->
+		<field name="chromosomes"		type="int"		indexed="true"	stored="true"/>
+		<field name="plasmids"			type="int"		indexed="true"	stored="true"/>
+		<field name="contigs"			type="int"		indexed="true"	stored="true"/>
+		<field name="sequences"			type="int"		indexed="true"	stored="true"/>
+		<field name="genome_length"		type="int"		indexed="true"	stored="true"/>
+		<field name="gc_content"		type="float"		indexed="true"	stored="true"/>
+
+		<!-- annotation statistics -->
+		<field name="patric_cds"		type="int"		indexed="true"	stored="true"/>
+		<field name="brc1_cds"			type="int"		indexed="true"	stored="true"/>
+		<field name="refseq_cds"		type="int"		indexed="true"	stored="true"/>
+
+		<field name="isolation_site"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="isolation_source"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="isolation_comments"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="collection_date"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="isolation_country"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="geographic_location"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="latitude"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="longitude"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="altitude"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="depth"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="other_environmental"			type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
+
+		<field name="host_name"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="host_gender"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="host_age"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="host_health"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="body_sample_site"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="body_sample_subsite"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="other_clinical"			type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
+		
+		<field name="antimicrobial_resistance"			type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
+		<field name="antimicrobial_resistance_evidence"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/> <!-- -->
+
+		<field name="gram_stain"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="cell_shape"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="motility"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="sporulation"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="temperature_range"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="optimal_temperature"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="salinity"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="oxygen_requirement"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="habitat"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="disease"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		
+		<field name="additional_metadata"			type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
+
+		<field name="comments"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+
+		<field name="text"			type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
+		<field name="_version_"			type="long"		indexed="true"	stored="true"/>
+
+		<field name="date_inserted"		type="tdate"		indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"		type="tdate"		indexed="true"	stored="true" default="NOW"/>
+
+		<!-- privilege control -->
+		<field name="public"			type="boolean"		indexed="true"	stored="true"/>
+		<field name="owner"			type="string"		indexed="true"	stored="true"/>
+		<field name="user_read"			type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="user_write"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+
+		<!-- data api support -->
+		<field name="document_type"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="document_id"		type="string"		indexed="true"	stored="true"/>
+	</fields>
+
+	<uniqueKey>genome_id</uniqueKey>
+	<solrQueryParser defaultOperator="AND"/>
+	
+	<copyField source="*" dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

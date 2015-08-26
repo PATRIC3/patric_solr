@@ -1,0 +1,39 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="taxonomy"
+			query="select t.ncbi_tax_id as taxon_id,
+					tn.name as taxon_name,
+					t.rank as taxon_rank
+				from sres.taxon t, sres.taxonname tn
+				where t.taxon_id = tn.taxon_id
+					and name_class = 'scientific name'">
+
+			<field column="TAXON_ID"	name="taxon_id"/>
+			<field column="TAXON_NAME"	name="taxon_name"/>
+			<field column="TAXON_RANK"	name="taxon_rank"/>
+
+			<entity name="TaxonLineage"	transformer="RegexTransformer"
+				query="SELECT listagg(ncbi_tax_id,',') within group (order by node_level desc) as tx_lineage_ids,
+						listagg(name,',') within group (order by node_level desc) as tx_lineage_names,
+						listagg(name,',') within group (order by node_level desc) as tx_lineage,
+						listagg(rank,',') within group (order by node_level desc) as tx_lineage_ranks
+					FROM (
+						select lng.name, lng.ncbi_tax_id, lng.rank, rownum as node_level
+						from (
+							select a.taxon_id, a.ncbi_tax_id, b.name, a.rank, a.parent_id
+							from sres.taxon a, sres.taxonname b
+							where a.taxon_id = b.taxon_id and b.name_class = 'scientific name'
+						) lng
+						where ncbi_tax_id not in (1)
+						connect by prior parent_id = taxon_id
+						start with lng.ncbi_tax_id = ${taxonomy.TAXON_ID}
+					)">
+				<field column="TX_LINEAGE"		name="lineage"/>
+				<field column="TX_LINEAGE_IDS"		name="lineage_ids"	splitBy=","/>
+				<field column="TX_LINEAGE_NAMES"	name="lineage_names"	splitBy=","/>
+				<field column="TX_LINEAGE_RANKS"	name="lineage_ranks"	splitBy=","/>
+			</entity>
+		</entity>
+	</document>
+</dataConfig>

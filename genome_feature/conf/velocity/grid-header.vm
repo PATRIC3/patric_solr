@@ -1,0 +1,25 @@
+<thead>
+<tr>
+	<th>Genome Name</th>
+	<th>Accession</th>
+	<th>Locus Tag</th>
+	<th>RefSeq Locus Tag</th>
+	<th>Gene Symbol</th>
+	<th>Annotation</th>
+	<th>Feature Type</th>
+	<th>Start</th>
+	<th>End</th>
+	<th>Length (NT)</th>
+	<th>Strand</th>
+	<th>Protein ID</th>
+	<th>Length (AA)</th>
+	<th>go</th>
+	<th>ec</th>
+	<th>pathway</th>
+	<th>ids</th>
+	<th>figfam_id</th>
+	<th>Product</th>
+	<th>Date Created</th>
+	<th>Date Modified</th>
+</tr>
+</thead>

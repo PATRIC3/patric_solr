@@ -1,0 +1,18 @@
+<thead>
+<tr>
+	<th>Genome ID</th>
+	<th>Organism Name</th>
+	<th>Genome Status</th>
+	<th>Chromosomes</th>
+	<th>Plasmids</th>
+	<th>Contigs</th>
+	<th>Sequences</th>
+	<th>PATRIC CDS</th>
+	<th>RefSeq CDS</th>
+	<th>Isolation Country</th>
+	<th>Host Name</th>
+	<th>Disease</th>
+	<th>Collection Date</th>
+	<th>Completion Date</th>
+</tr>
+</thead>

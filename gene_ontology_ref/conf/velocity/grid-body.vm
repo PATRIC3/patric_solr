@@ -1,0 +1,7 @@
+<tr>
+	<td>#field('go_id')</td>
+	<td>#field('go_name')</td>
+	<td>#field('ontology')</td>
+	<td>#field('definition')</td>
+</tr>
+#parse('debug.vm')

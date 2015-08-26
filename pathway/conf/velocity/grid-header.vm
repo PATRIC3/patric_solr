@@ -1,0 +1,14 @@
+<thead>
+<tr>
+	<th>Genome</th>
+	<th>Accession</th>
+	<th>Locus Tag</th>
+	<th>Annotation</th>
+	<th>Gene</th>
+	<th>PATHWAY ID</th>
+	<th>PATHWAY Name</th>
+	<th>PATHWAY Class</th>
+	<th>EC Number</th>
+	<th>EC Desc</th>
+</tr>
+</thead>

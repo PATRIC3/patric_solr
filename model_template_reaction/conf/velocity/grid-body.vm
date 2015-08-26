@@ -1,0 +1,34 @@
+##set($docId = $doc.getFieldValue('genome_info_id'))
+<tr>
+  <td>#field('id')</td>
+  <td>#field('reaction_id')</td>
+  <td>#field('abbreviation')</td>
+  <td>#field('name')</td>
+  <td>#field('code')</td>
+  <td>#field('stoichiometry')</td>
+  <td>#field('is_transport')</td>
+  <td>#field('equation')</td>
+  <td>#field('definition')</td>
+  <td>#field('model_direction')</td>
+  <td>#field('gapfill_direction')</td>
+  <td>#field('type')</td>
+  <td>#field('base_cost')</td>
+  <td>#field('forward_penalty')</td>
+  <td>#field('reverse_penalty')</td>
+  <td>#field('patdways')</th>
+  <td>#field('aliases')</td>
+  <td>#field('ec_numbers')</td>
+  <td>#field('deltag')</td>
+  <td>#field('deltagerr')</td>
+  <td>#field('template_id')</td>
+  <td>#field('template_name')</td>
+  <td>#field('template_modeltype')</td>
+  <td>#field('template_domain')</td>
+  <td>#field('template_version')</td>
+  <td>#field('template_is_current')</td>
+  <td>#field('template_owner')</td>
+  <td>#field('compartment_ids')</td>
+  <td>#field('complex_ids')</td>
+  <td>#field('compound_ids')</td>
+</tr>
+#parse('debug.vm')

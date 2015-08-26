@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="pathway_ref" transformer="RegexTransformer"
+			query="select ep.source_id as pathway_id, ep.name as pathway_name, substr(ep.class, instr(ep.class, '; ')+2, length(ep.class)) pathway_class,
+					ec.ec_number as ec_number, ec.description as ec_desc,
+					epc.map_type, epc.map_name,
+					listagg(coordinate_x||','||coordinate_y||','||map_width||','||map_height, '#') within group (order by map_name) as map_location,
+					count(*) as occurrence
+				from sres.ecpathway ep, sres.ecpathwayenzymeclass epc, sres.enzymeclass ec 
+				where ep.ec_pathway_id = epc.ec_pathway_id and epc.enzyme_class_id = ec.enzyme_class_id 
+				group by ep.source_id, ep.name, ep.class, ec.ec_number, ec.description, map_type, map_name">
+			<field column="PATHWAY_ID"	name="pathway_id"/>
+			<field column="PATHWAY_NAME"	name="pathway_name"/>
+			<field column="PATHWAY_CLASS"	name="pathway_class"/>
+
+			<field column="EC_NUMBER"	name="ec_number"/>
+			<field column="EC_DESC"		name="ec_description"/>
+
+			<field column="MAP_TYPE"	name="map_type"/>
+			<field column="MAP_NAME"	name="map_name"/>
+			<field column="MAP_LOCATION"	name="map_location"	splitBy="#"/>
+			<field column="OCCURRENCE"	name="occurrence"/>
+		</entity>
+	</document>
+</dataConfig>

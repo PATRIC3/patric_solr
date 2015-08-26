@@ -1,0 +1,12 @@
+<tr>
+	<td>#field('pathway_id')</td>
+	<td>#field('pathway_name')</td>
+	<td>#field('pathway_class')</td>
+	<td>#field('ec_number')</td>
+	<td>#field('ec_desc')</td>
+	<td>#field('map_type')</td>
+	<td>#field('map_name')</td>
+	<td>#field('map_location')</td>
+	<td>#field('occurrence')</td>
+</tr>
+#parse('debug.vm')

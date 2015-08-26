@@ -1,0 +1,16 @@
+<thead>
+<tr>
+	<th>Genome Name</th>
+	<th>SID</th>
+	<th>Taxon ID</th>
+	<th>Accession</th>
+	<th>GI</th>
+	<th>Description</th>
+	<th>Length</th>
+	<th>GC Content</th>
+	<th>Type</th>
+	<th>Topology</th>
+	<th>Date Created</th>
+	<th>Date Modified</th>
+</tr>
+</thead>

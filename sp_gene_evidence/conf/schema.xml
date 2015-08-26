@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="sp_gene_evidence" version="1.5">
+	<fields>
+		<field name="id"		type="uuid"	indexed="true"	stored="true"	required="false"/>
+
+		<field name="property"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="source"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="source_id"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="pmid"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="assertion"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="classification"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="specific_organism"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="specific_host"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="text"		type="text_custom" indexed="true"	stored="false"	multiValued="true"/>
+		<field name="_version_"		type="long"	indexed="true"	stored="true"/>
+		<field name="date_inserted"	type="tdate"	indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"	type="tdate"	indexed="true"	stored="true" default="NOW"/>
+	</fields>
+
+	<uniqueKey>id</uniqueKey>
+
+	<solrQueryParser defaultOperator="AND"/>
+
+	<copyField source="property"		dest="text"/>
+	<copyField source="source"		dest="text"/>
+	<copyField source="source_id"		dest="text"/>
+	<copyField source="assertion"		dest="text"/>
+	<copyField source="classification"	dest="text"/>
+	<copyField source="specific_organism"	dest="text"/>
+	<copyField source="specific_host"	dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

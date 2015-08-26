@@ -1,0 +1,52 @@
+<dataConfig>
+  <dataSource type="JdbcDataSource"
+              driver="oracle.jdbc.driver.OracleDriver"
+              url="jdbc:oracle:thin:@crick-oracle.vbi.vt.edu:1521:p2pub1"
+              user="gusdevreadonly"
+              password="suggus"/>
+  <document>
+    <entity name="genex-experiment" transformer="ClobTransformer,RegexTransformer"
+            query="
+              select
+                eid,
+                expid,
+                accession,
+                institution,
+                pi,
+                author,
+                pmid,
+                title,
+                organism,
+                strain,
+                mutant,
+                timeseries,
+                condition,
+		cast(substr(description, 1, 4000) as varchar(4000)) as description,
+                samples,
+                platforms,
+                genes,
+		release_date,
+                rownum
+              from app.genexp_experiment ">
+      <field column="eid" name="eid"/>
+      <field column="expid" name="expid"/>
+      <field column="accession" name="accession"/>
+      <field column="institution" name="institution"/>
+      <field column="pi" name="pi"/>
+      <field column="author" name="author"/>
+      <field column="pmid" name="pmid"/>
+      <field column="title" name="title"/>
+      <field column="ORGANISM"   name="organism"   splitBy="," sourceColumnName="ORGANISM" />
+      <field column="STRAIN"     name="strain"     splitBy="," sourceColumnName="STRAIN" />
+      <field column="MUTANT"     name="mutant"     splitBy=",|/" sourceColumnName="MUTANT" />
+      <field column="CONDITION"  name="condition"  splitBy="," sourceColumnName="CONDITION" />
+      <field column="TIMESERIES" name="timeseries" splitBy="," sourceColumnName="TIMESERIES" />
+      <field column="description" name="description"/>
+      <field column="samples" name="samples"/>
+      <field column="platforms" name="platforms"/>
+      <field column="release_date" name="release_date"/>
+      <field column="genes" name="genes"/>
+      <field column="rownum" name="rownum"/>
+    </entity>
+  </document>
+</dataConfig>

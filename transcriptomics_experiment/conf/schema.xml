@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="transcriptomics_experiment" version="1.5">
+	 <fields>
+		<field name="eid"		type="int"		indexed="true"	stored="true"/>
+		<field name="expid"		type="int"		indexed="true"	stored="true"/>
+
+		<field name="accession"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="institution"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="pi"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="author"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="pmid"		type="string"		indexed="true"	stored="true"/>
+		<field name="release_date"	type="tdate"		indexed="true"	stored="true"/>
+
+		<field name="title"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="description"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="organism"		type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="strain"		type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="mutant"		type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="timeseries"	type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="condition"		type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+
+		<field name="samples"		type="int"		indexed="true"	stored="true"/>
+		<field name="platforms"		type="int"		indexed="true"	stored="true"/>
+		<field name="genes"		type="int"		indexed="true"	stored="true"/>
+
+		<field name="genome_ids"	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
+		<field name="_version_"		type="long"		indexed="true"	stored="true"/>
+		<field name="date_inserted"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+
+                <!-- data api support -->
+		<field name="document_type"             type="string"           indexed="true"  stored="true"   docValues="true"/>
+		<field name="document_id"               type="string"           indexed="true"  stored="true"/>
+	</fields>
+	
+	<uniqueKey>eid</uniqueKey>
+	
+	<solrQueryParser defaultOperator="AND"/>
+
+	<copyField source="accession"		dest="text"/>
+	<copyField source="institution"		dest="text"/>
+	<copyField source="pi"			dest="text"/>
+	<copyField source="author"		dest="text"/>
+	<copyField source="title"		dest="text"/>
+	<copyField source="description"		dest="text"/>
+	<copyField source="organism"		dest="text"/>
+	<copyField source="strain"		dest="text"/>
+	<copyField source="mutant"		dest="text"/>
+	<copyField source="timeseries"		dest="text"/>
+	<copyField source="condition"		dest="text"/>
+	
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

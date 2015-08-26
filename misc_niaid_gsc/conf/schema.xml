@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="misc_niaid_sgc" version="1.5">
+	<fields>
+		<field name="target_id"			type="string"	indexed="true"	stored="true"/>
+		<field name="target_status"		type="string"	indexed="true"	stored="true"/>
+		<field name="selection_criteria"	type="string"	indexed="true"	stored="true"/>
+
+		<field name="genus"			type="string"	indexed="true"	stored="true"/>
+		<field name="species"			type="string"	indexed="true"	stored="true"/>
+		<field name="strain"			type="string"	indexed="true"	stored="true"/>
+
+		<field name="has_clones"		type="string"	indexed="true"	stored="true"/>
+		<field name="has_proteins"		type="string"	indexed="true"	stored="true"/>
+		<field name="gene_symbol_collection"	type="string"	indexed="true"	stored="true"	multiValued="true"/>
+
+		<field name="text"			type="text_custom" indexed="true"	stored="false"	multiValued="true"/>
+		<field name="_version_"			type="long"	indexed="true"	stored="true"/>
+		<field name="date_inserted"		type="tdate"	indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"		type="tdate"	indexed="true"	stored="true" default="NOW"/>
+	</fields>
+
+	<uniqueKey>target_id</uniqueKey>
+	<solrQueryParser defaultOperator="AND"/>
+
+	<copyField source="target_status"	dest="text"/>
+	<copyField source="selection_criteria"	dest="text"/>
+	<copyField source="genus"		dest="text"/>
+	<copyField source="species"		dest="text"/>
+	<copyField source="strain"		dest="text"/>
+	<copyField source="has_clones"		dest="text"/>
+	<copyField source="has_proteins"	dest="text"/>
+	<copyField source="gene_symbol_collection"	dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>

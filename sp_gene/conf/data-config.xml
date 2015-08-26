@@ -1,0 +1,64 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="sp_gene" transformer="ClobTransformer"
+			query="select pi.genome_id, df.genome_name, df.ncbi_tax_id,
+					pi.feature_id, pi.seed_id, pi.alt_locus_tag, pi.refseq_locus_tag,
+					pi.gene, df.product,
+					gs.property, gs.source, gs.property || ': ' || gs.source as property_source,
+					gs.source_id, gs.organism, gs.function, gs.classification, 
+					gs.pmid, gs.assertion,
+					mp.query_coverage, mp.subject_coverage, mp.identity, mp.e_value,
+					decode(substr(df.genome_name, 0, instr(df.genome_name, ' ', 1, 1)), substr(gs.organism, 0, instr(gs.organism, ' ', 1, 1)), 1, 0) as same_genus,
+					decode(substr(df.genome_name, 0, instr(df.genome_name, ' ', 1, 2)), substr(gs.organism, 0, instr(gs.organism, ' ', 1, 2)), 1, 0) as same_species,
+					decode(df.genome_name, gs.organism, 1, 0) as same_genome,
+					decode(gs.locus_tag, null, 'BLASTP', refseq_locus_tag, 'Literature', 'BLASTP') as evidence,
+					'true' as is_public, 'PATRIC' as owner
+				from app.specialty_gene gs, app.specialty_gene_mapping mp, 
+					app.dnafeature df, app.p3_identifiers pi
+				where gs.source = mp.source
+					and gs.source_id = mp.source_id
+					and mp.pseed_id = df.pseed_id
+					and df.feature_status is null
+					and df.name = 'CDS' and df.algorithm = 'RAST'
+					and df.na_feature_id = pi.na_feature_id
+					/* and df.genome_info_id in (87468,226894,343809,169848,147111,152058,155631,157334,148355) */">
+			<field column="GENOME_ID"	name="genome_id"/>
+			<field column="GENOME_NAME"	name="genome_name"/>
+			<field column="NCBI_TAX_ID"	name="taxon_id"/>
+
+			<field column="FEATURE_ID"	name="feature_id"/>
+			<field column="ALT_LOCUS_TAG"	name="alt_locus_tag"/>
+			<field column="REFSEQ_LOCUS_TAG" name="refseq_locus_tag"/>
+			<field column="SEED_ID"		name="seed_id"/>
+
+			<field column="GENE"		name="gene"/>
+			<field column="PRODUCT"		name="product"/>
+
+			<field column="PROPERTY"	name="property"/>
+			<field column="SOURCE"		name="source"/>
+			<field column="PROPERTY_SOURCE"	name="property_source"/>
+
+			<field column="SOURCE_ID"	name="source_id"/>
+			<field column="ORGANISM"	name="organism"/>
+			<field column="FUNCTION"	name="function"/>
+			<field column="CLASSIFICATION"	name="classification"/>
+
+			<field column="PMID"		name="pmid"/>
+			<field column="ASSERTION"	name="assertion" clob="true"/>
+
+			<field column="QUERY_COVERAGE"	name="query_coverage"/>
+			<field column="SUBJECT_COVERAGE" name="subject_coverage"/>
+			<field column="IDENTITY"	name="identity"/>
+			<field column="E_VALUE"		name="e_value"/>
+
+			<field column="SAME_GENUS"	name="same_genus"/>
+			<field column="SAME_SPECIES"	name="same_species"/>
+			<field column="SAME_GENOME"	name="same_genome"/>
+			<field column="EVIDENCE"	name="evidence"/>
+
+			<field column="IS_PUBLIC"	name="public"/>
+			<field column="OWNER"		name="owner"/>
+		</entity>
+	</document>
+</dataConfig>

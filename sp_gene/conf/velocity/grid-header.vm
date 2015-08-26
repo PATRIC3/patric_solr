@@ -1,0 +1,16 @@
+<thead>
+<tr>
+	<th>Evidence</th>
+	<th>Genome Name</th>
+	<th>Locus Tag</th>
+	<th>RefSeq Locus Tag</th>
+	<th>Gene Symbol</th>
+	<th>Product</th>
+	<th>Property Source</th>
+	<th>Source ID</th>
+	<th>PubMed</th>
+	<th>Query Coverage</th>
+	<th>Subject Coverage</th>
+	<th>Identity</th>
+</tr>
+</thead>

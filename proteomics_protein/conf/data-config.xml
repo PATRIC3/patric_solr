@@ -1,0 +1,51 @@
+<dataConfig>
+  <dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+  <document>
+    <entity name="proteomics-protein" transformer="ClobTransformer,RegexTransformer"
+            query="
+              select distinct
+                ex.experiment_id,
+                ex.source,
+                ex.accession,
+                ex.experiment_title,
+                experiment_label,
+                ex.pubmed_id,
+                ex.taxon_id,
+                ex.taxon_name,
+                df.genome_name,
+                df.na_feature_id,
+                df.source_id as locus_tag,
+                df.product, 
+                rmp.refseq_source_id as refseq_locus_tag,
+                rmp.gene as refseq_gene,
+                peptides,
+                pr.abundance,
+                log_ratio,
+                z_score
+              from proteomics.experiment ex, proteomics.protein pr, proteomics.proteinmapping mp, app.dnafeature df, app.patricrefseqmapping rmp
+              where ex.experiment_id = pr.experiment_id
+                and pr.protein_id = mp.protein_id
+                and mp.na_feature_id = df.na_feature_id
+                and mp.na_feature_id = rmp.patric_na_feature_id
+            ">
+      <field column="experiment_id" name="experiment_id"/>
+      <field column="source" name="source"/>
+      <field column="genome_name" name="genome_name"/>
+      <field column="accession" name="accession"/>
+      <field column="experiment_title" name="experiment_title"/>
+      <field column="experiment_label" name="experiment_label"/>
+      <field column="pubmed_id" name="pubmed_id"/>
+      <field column="taxon_id" name="taxon_id"/>
+      <field column="taxon_name" name="taxon_name"/>
+      <field column="na_feature_id" name="na_feature_id"/>
+      <field column="locus_tag" name="locus_tag"/>
+      <field column="peptides" name="peptides"/>
+      <field column="abundance" name="abundance"/>
+      <field column="product" name="product"/>
+      <field column="log_ratio" name="log_ratio"/>
+      <field column="z_score" name="z_score"/>
+      <field column="refseq_source_id" name="refseq_source_id"/>
+      <field column="refseq_locus_tag" name="refseq_locus_tag"/>
+    </entity>
+  </document>
+</dataConfig>

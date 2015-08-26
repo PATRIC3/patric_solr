@@ -1,0 +1,25 @@
+<thead>
+<tr>
+	<th>id</th>
+	<th>name</th>
+	<th>type</th>
+	<th>other</th>
+	<th>dna</th>
+	<th>rna</th>
+	<th>protein</th>
+	<th>lipid</th>
+	<th>cellwall</th>
+	<th>cofactor</th>
+	<th>energy</th>
+	<th>template_id</th>
+	<th>template_name</th>
+	<th>template_modeltype</th>
+	<th>template_domain</th>
+	<th>template_version</th>
+	<th>template_is_current</th>
+	<th>template_owner</th>
+	<th>compartment_ids</th>
+	<th>compound_ids</th>
+	<th>compound_date</th>
+</tr>
+</thead>

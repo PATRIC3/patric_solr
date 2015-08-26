@@ -1,0 +1,39 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" jndiName="java:comp/env/jdbc/DIHDataSource" convertType="true" />
+	<document>
+		<entity name="genome_sequence" transformer="ClobTransformer"
+				query="select sp.pseed_id as genome_id, gi.genome_info_id, gi.genome_name, gi.ncbi_tax_id,
+						si.accession as sequence_id, si.accession, si.gi,
+						si.sequence_type, si.topology, ns.description,
+						si.chromosome,
+						round((ns.g_count+ns.c_count)/(ns.a_count+ns.t_count+ns.g_count+ns.c_count)*100,1) as gc_content, si.length,
+						ns.sequence, 'true' as is_public, 'PATRIC' as owner
+					from cas.genomeinfo gi, cas.sequenceinfo si, dots.nasequence ns, app.pseed_accession sp
+					where gi.genome_info_id = si.genome_info_id
+						and si.accession = sp.accession
+						and si.na_sequence_id = ns.na_sequence_id (+)">
+			<field column="GENOME_ID"	name="genome_id"/>
+			<field column="GENOME_NAME"	name="genome_name"/>
+			<field column="NCBI_TAX_ID"	name="taxon_id"/>
+
+			<field column="SEQUENCE_ID"	name="sequence_id"/>
+			<field column="ACCESSION"	name="accession"/>
+			<field column="GI"		name="gi"/>
+
+			<field column="SEQUENCE_TYPE"	name="sequence_type"/>
+			<field column="TOPOLOGY"	name="topology"/>
+			<field column="DESCRIPTION"	name="description"/>
+
+			<field column="CHROMOSOME"	name="chromosome"/>
+			<field column="PLASMID"		name="plasmid"/><!-- ?? -->
+
+			<field column="GC_CONTENT"	name="gc_content"/>
+			<field column="LENGTH"		name="length"/>
+			<field column="SEQUENCE"	name="sequence"	clob="true"/>
+
+			<field column="IS_PUBLIC"	name="public"/>
+			<field column="OWNER"		name="owner"/>
+			<!-- release_date, version -->
+		</entity>
+	</document>
+</dataConfig>

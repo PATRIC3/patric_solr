@@ -1,0 +1,25 @@
+##set($docId = $doc.getFieldValue('genome_info_id'))
+<tr>
+	<td>#field('id')</td>
+	<td>#field('name')</td>
+	<td>#field('type')</td>
+	<td>#field('other')</td>
+	<td>#field('dna')</td>
+	<td>#field('rna')</td>
+	<td>#field('protein')</td>
+	<td>#field('lipid')</td>
+	<td>#field('celwall')</td>
+	<td>#field('cofactor')</td>
+	<td>#field('energy')</td>
+	<td>#field('template_id')</td>
+	<td>#field('template_name')</td>
+	<td>#field('template_modeltype')</td>
+	<td>#field('template_domain')</td>
+	<td>#field('template_version')</td>
+	<td>#field('template_is_current')</td>
+	<td>#field('template_owner')</td>
+	<td>#field('compartment_ids')</td>
+	<td>#field('compound_ids')</td>
+	<td>#field('compound_data')</td>
+</tr>
+#parse('debug.vm')

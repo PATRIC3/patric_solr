@@ -1,0 +1,6 @@
+<tr>
+	<td>#field('ec_number')</td>
+	<td>#field('ec_description')</td>
+	<td>#field('go')</td>
+</tr>
+#parse('debug.vm')
