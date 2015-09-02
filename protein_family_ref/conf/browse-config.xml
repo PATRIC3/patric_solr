@@ -9,7 +9,7 @@
 		<!-- Query settings -->
 		<str name="defType">edismax</str>
 		<str name="qf">
-			figfam_id^1 text^1
+			text^1
 		</str>
 		<str name="df">text</str>
 		<str name="mm">100%</str>
@@ -18,7 +18,7 @@
 		<str name="fl">*,score</str>
 		<!-- Faceting defaults -->
 		<str name="facet">on</str>
-<!--		<str name="facet.field">figfam_id</str>-->
+		<str name="facet.field">family_type</str>
 		<str name="facet.mincount">1</str>
 		<!-- Highlighting defaults -->
 <!--		<str name="hl">on</str>

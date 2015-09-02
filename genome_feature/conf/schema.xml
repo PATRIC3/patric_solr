@@ -40,6 +40,8 @@
 		<field name="product"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 
 		<field name="figfam_id"			type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="plfam_id"			type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="pgfam_id"			type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="ec"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 		<field name="pathway"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 		<field name="go"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
@@ -78,6 +80,8 @@
 	<copyField source="refseq_locus_tag"	dest="text"/>
 	<copyField source="protein_id"		dest="text"/>
 	<copyField source="figfam_id"		dest="text"/>
+	<copyField source="plfam_id"		dest="text"/>
+	<copyField source="pgfam_id"		dest="text"/>
 	<copyField source="ec"			dest="text"/>
 	<copyField source="pathway"		dest="text"/>
 	<copyField source="go"			dest="text"/>

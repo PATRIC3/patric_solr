@@ -86,7 +86,7 @@
 			<str name="df">text</str>
 			<str name="spellcheck.dictionary">default</str>
 			<str name="spellcheck.count">1</str>
-			<str name="fl">figfam_id,figfam_product,date_inserted,date_modified</str>
+			<str name="fl">family_id,family_type,family_product,date_inserted,date_modified</str>
 		</lst>
 	</requestHandler>
 
@@ -114,6 +114,7 @@
 	</requestHandler>
 
 	<!-- ping/healthcheck -->
+	<requestHandler name="/analysis/field" startup="lazy" class="solr.FieldAnalysisRequestHandler" />
 	<requestHandler name="/admin/ping" class="solr.PingRequestHandler">
 		<lst name="invariants">
 			<str name="q">solrpingquery</str>

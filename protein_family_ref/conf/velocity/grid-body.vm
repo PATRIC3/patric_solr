@@ -1,6 +1,7 @@
 ##set($docId = $doc.getFieldValue('genome_info_id'))
 <tr>
-	<td>#field('figfam_id')</td>
-	<td>#field('figfam_product')</td>
+	<td>#field('family_type')</td>
+	<td>#field('family_id')</td>
+	<td>#field('family_product')</td>
 </tr>
 #parse('debug.vm')
