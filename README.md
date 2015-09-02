@@ -19,3 +19,4 @@ Installation
     ```
     ./bin/solr restart -Dsolr.solr.home=./patric_solr/ -Dlucene.version=5.3
     ```
+	* change lucene.version according to your lucene version
