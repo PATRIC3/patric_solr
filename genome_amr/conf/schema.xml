@@ -7,8 +7,6 @@ testing_standard	testing_standard_year	source	 -->
 
 <schema name="genome_amr" version="1.5">
 	<fields>
-
-		
 		<field name="id"		type="string"		indexed="true"	stored="true"/>
 		<field name="genome_id"		type="string"		indexed="true"	stored="true"/>
 		<field name="genome_name"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
@@ -35,6 +33,12 @@ testing_standard	testing_standard_year	source	 -->
 		<field name="_version_"		type="long"		indexed="true"	stored="true"/>
 		<field name="date_inserted"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
 		<field name="date_modified"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+
+		<!-- privilege control -->
+		<field name="public"			type="boolean"		indexed="true"	stored="true"/>
+		<field name="owner"			type="string"		indexed="true"	stored="true"/>
+		<field name="user_read"			type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="user_write"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 	</fields>
 
 	<uniqueKey>id</uniqueKey>
