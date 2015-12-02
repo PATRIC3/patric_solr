@@ -101,18 +101,18 @@
 
 	<requestHandler name="/update" class="solr.UpdateRequestHandler">
 		<lst name="defaults">
-			<!-- <str name="update.chain">keygen</str> --> 
+			<str name="update.chain">keygen</str>
 		</lst>
 	</requestHandler>
 
-<!-- 
+
 	<updateRequestProcessorChain name="keygen">
 		<processor class="solr.UUIDUpdateProcessorFactory">
 			<str name="fieldName">id</str>
 		</processor>
 		<processor class="solr.RunUpdateProcessorFactory" />
 	</updateRequestProcessorChain>
--->
+
 
 	<!-- ping/healthcheck -->
 	<requestHandler name="/admin/ping" class="solr.PingRequestHandler">
