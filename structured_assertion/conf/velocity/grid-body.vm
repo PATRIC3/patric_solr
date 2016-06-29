@@ -1,0 +1,15 @@
+##set($docId = $doc.getFieldValue('genome_info_id'))
+<tr>
+	<td>#field('feature_id')</td>
+	<td>#field('patric_id')</td>
+	<td>#field('refseq_locus_tag')</td>
+	<td>#field('property')</td>
+	<td>#field('value')</td>
+	<td>#field('comment')</td>
+	<td>#field('pmid')</td>
+	<td>#field('evidence_code')</td>
+	<td>#field('score')</td>
+	<td>#field('date_inserted')</td>
+	<td>#field('date_modified')</td>
+</tr>
+#parse('debug.vm')

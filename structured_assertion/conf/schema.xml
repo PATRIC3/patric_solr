@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="structured_assertion" version="1.5">
+	<fields>
+		<field name="id"			type="string"		indexed="true"	stored="true"/>
+
+		<field name="feature_id"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="patric_id"		type="string"		indexed="true"	stored="true"/>
+		<field name="refseq_locus_tag"	type="string"		indexed="true"	stored="true"/>
+
+		<field name="property"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="value"		type="string"		indexed="true"	stored="true"/>
+		<field name="comment"		type="string"		indexed="true"	stored="true"/>
+		<field name="pmid"		type="string"		indexed="true"	stored="true"/>
+		<field name="evidence_code"	type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="score"		type="string"		indexed="true"	stored="true"/>
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
+		<field name="_version_"		type="long"		indexed="true"	stored="true"/>
+		<field name="date_inserted"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+
+		<field name="public"		type="boolean"		indexed="true"	stored="true"/>
+		<field name="owner"		type="string"		indexed="true"	stored="true"/>
+		<field name="user_read"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="user_write"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+	</fields>
+
+	<uniqueKey>id</uniqueKey>
+	<solrQueryParser defaultOperator="AND"/>
+
+	<!-- copy field for global search -->
+	<copyField source="patric_id"		dest="text"/>
+	<copyField source="refseq_locus_tag"	dest="text"/>
+	<copyField source="property"		dest="text"/>
+	<copyField source="value"		dest="text"/>
+	<copyField source="comment"		dest="text"/>
+	<copyField source="evidence_code"	dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>
