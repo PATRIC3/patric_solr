@@ -8,6 +8,7 @@
 		<field name="patric_id"		type="string"		indexed="true"	stored="true"/>
 		<field name="refseq_locus_tag"	type="string"		indexed="true"	stored="true"/>
 
+		<field name="source"		type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="property"		type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="value"		type="string"		indexed="true"	stored="true"/>
 		<field name="comment"		type="string"		indexed="true"	stored="true"/>
@@ -23,7 +24,7 @@
 		<field name="public"		type="boolean"		indexed="true"	stored="true"/>
 		<field name="owner"		type="string"		indexed="true"	stored="true"/>
 		<field name="user_read"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
-		<field name="user_write"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="user_write"	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 	</fields>
 
 	<uniqueKey>id</uniqueKey>
