@@ -83,7 +83,7 @@
 			<str name="df">text</str>
 			<str name="spellcheck.dictionary">default</str>
 			<str name="spellcheck.count">1</str>
-			<str name="fl">id,feature_id,patric_id,refseq_locus_tag,property,value,comment,pmid,evidence_code,score,date_inserted,date_modified</str>
+			<str name="fl">id,feature_id,patric_id,refseq_locus_tag,source,property,value,comment,pmid,evidence_code,score,date_inserted,date_modified</str>
 		</lst>
 	</requestHandler>
 	<!-- <xi:include href="browse-config.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
