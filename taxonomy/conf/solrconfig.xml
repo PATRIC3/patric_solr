@@ -83,7 +83,7 @@
 			<str name="df">text</str>
 			<str name="spellcheck.dictionary">default</str>
 			<str name="spellcheck.count">1</str>
-			<str name="fl">lineage,lineage_ids,genetic_code,genomes,lineage_names,taxon_id,taxon_name,taxon_rank,other_names,lineage_ranks,date_inserted,date_modified</str>
+			<str name="fl">lineage,lineage_ids,genetic_code,genomes,lineage_names,taxon_id,taxon_name,taxon_rank,other_names,lineage_ranks,parent_id,division,description,date_inserted,date_modified</str>
 		</lst>
 	</requestHandler>
 	<!--
