@@ -86,7 +86,7 @@
 			<str name="df">text</str>
 			<str name="spellcheck.dictionary">default</str>
 			<str name="spellcheck.count">1</str>
-			<str name="fl">feature_id,evidence,genome_id,genome_name,alt_locus_tag,e_value,source,same_genus,public,identity,function,property,refseq_locus_tag,owner,product,organism,gene,query_coverage,subject_coverage,taxon_id,classification,pmid,patric_id,property_source,same_genome,same_species,source_id,date_inserted,date_modified</str>
+			<str name="fl">id,feature_id,evidence,genome_id,genome_name,alt_locus_tag,e_value,source,same_genus,public,identity,function,property,refseq_locus_tag,owner,product,organism,gene,query_coverage,subject_coverage,taxon_id,classification,pmid,patric_id,property_source,same_genome,same_species,source_id,date_inserted,date_modified</str>
 		</lst>
 	</requestHandler>
 
