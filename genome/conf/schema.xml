@@ -68,6 +68,7 @@
 		<field name="isolation_source"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="isolation_comments"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="collection_date"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="collection_year"		type="int"		indexed="true"	stored="true"/>
 
 		<field name="isolation_country"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="geographic_location"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
