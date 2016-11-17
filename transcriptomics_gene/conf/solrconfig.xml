@@ -91,7 +91,7 @@
 			<str name="df">text</str>
 			<str name="spellcheck.dictionary">default</str>
 			<str name="spellcheck.count">1</str>
-			<str name="fl">feature_id,strain,eid,log_ratio,organism,genome_id,alt_locus_tag,avg_intensity,pid,accession,pmid,patric_id,expname,condition,refseq_locus_tag,z_score,mutant,timepoint,date_inserted,date_modified</str>
+			<str name="fl">id,feature_id,strain,eid,log_ratio,organism,genome_id,alt_locus_tag,avg_intensity,pid,accession,pmid,patric_id,expname,condition,refseq_locus_tag,z_score,mutant,timepoint,date_inserted,date_modified</str>
 		</lst>
 	</requestHandler>
 	<!--

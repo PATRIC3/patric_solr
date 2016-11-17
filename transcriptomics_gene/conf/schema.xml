@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema name="transcriptomics_gene" version="1.5">
 	<fields>
-		<field name="id"		type="string"		indexed="true"	stored="true"/><!-- remove ?? -->
+		<field name="id"		type="uuid"		indexed="true"	stored="true"/>
 
 		<field name="eid"		type="int"		indexed="true"	stored="true"/>
 		<field name="pid"		type="int"		indexed="true"	stored="true"/>
@@ -32,7 +32,7 @@
 		<field name="date_modified"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
 	</fields>
 
-	<!--<uniqueKey>id</uniqueKey>-->
+	<uniqueKey>id</uniqueKey>
 	
 	<solrQueryParser defaultOperator="AND"/>
 
