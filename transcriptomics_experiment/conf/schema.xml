@@ -27,6 +27,8 @@
 
 		<field name="genome_ids"	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 
+		<field name="additional_metadata"	type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+
 		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
 		<field name="_version_"		type="long"		indexed="true"	stored="true"/>
 		<field name="date_inserted"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
@@ -52,6 +54,7 @@
 	<copyField source="mutant"		dest="text"/>
 	<copyField source="timeseries"		dest="text"/>
 	<copyField source="condition"		dest="text"/>
+	<copyField source="additional_metadata"	dest="text"/>
 	
 	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
 		<xi:fallback></xi:fallback>
