@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="ppi" version="1.5">
+	<fields>
+		<field name="id"	type="string"	indexed="true" stored="true" />
+		<field name="taxon_id"		type="int"	indexed="true" stored="true" />
+
+		<field name="genome_id_a"		type="string"	indexed="true" stored="true" />
+		<field name="genome_name_a"		type="string_ci"	indexed="true" stored="true" />
+
+		<field name="feature_id_a"		type="string"	indexed="true" stored="true" />
+		<field name="patric_id_a"		type="string"	indexed="true" stored="true" />
+		<field name="refseq_locus_tag_a"		type="string"	indexed="true" stored="true" />
+		<field name="gene_a"		type="string"	indexed="true" stored="true" />
+		<field name="product_a"	type="string_ci"	indexed="true" stored="true" />
+
+		<field name="feature_id_b"		type="string"	indexed="true" stored="true" />
+		<field name="patric_id_b"		type="string"	indexed="true" stored="true" />
+		<field name="refseq_locus_tag_b"		type="string"	indexed="true" stored="true" />
+		<field name="gene_b"		type="string"	indexed="true" stored="true" />
+		<field name="product_b"	type="string_ci"	indexed="true" stored="true" />
+
+		<field name="type"		type="string_ci"	indexed="true" stored="true" docValues="true" />
+		<field name="method"	type="string_ci"	indexed="true" stored="true" docValues="true" />
+
+		<field name="pmid"	type="string"	indexed="true" stored="true" multiValued="true" />
+		<field name="source_db"	type="string"	indexed="true" stored="true" multiValued="true "/>
+		<field name="source_id"	type="string"	indexed="true" stored="true" multiValued="true" />
+		<field name="score"		type="string"	indexed="true" stored="true" />
+
+		<field name="text"		type="text_custom" indexed="true" stored="false" multiValued="true" />
+		<field name="_version_"		type="long"	indexed="true" stored="true" />
+		<field name="date_inserted"	type="tdate"	indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"	type="tdate"	indexed="true"	stored="true" default="NOW"/>
+	</fields>
+
+	<uniqueKey>id</uniqueKey>
+
+	<solrQueryParser defaultOperator="AND"/>
+
+	<copyField source="genome_id_a"	dest="text"/>
+	<copyField source="genome_name_a"	dest="text"/>
+
+	<copyField source="patric_id_a"		dest="text"/>
+	<copyField source="refseq_locus_tag_a"		dest="text"/>
+	<copyField source="gene_a"	dest="text"/>
+	<copyField source="product_a"		dest="text"/>
+
+	<copyField source="patric_id_b"		dest="text"/>
+	<copyField source="refseq_locus_tag_b"		dest="text"/>
+	<copyField source="gene_b"	dest="text"/>
+	<copyField source="product_b"		dest="text"/>
+
+	<copyField source="type"		dest="text"/>
+	<copyField source="method"		dest="text"/>
+	<copyField source="pmid"		dest="text"/>
+	<copyField source="source_db"		dest="text"/>
+	<copyField source="source_id"		dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>
