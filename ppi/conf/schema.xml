@@ -26,7 +26,7 @@
 		<field name="detection_method"	type="string_ci" indexed="true" stored="true" docValues="true" />
 
 		<field name="pmid"		type="string"	indexed="true" stored="true" multiValued="true" />
-		<field name="source_db"		type="string"	indexed="true" stored="true" multiValued="true "/>
+		<field name="source_db"		type="string"	indexed="true" stored="true" multiValued="true" />
 		<field name="source_id"		type="string"	indexed="true" stored="true" multiValued="true" />
 		<field name="score"		type="string"	indexed="true" stored="true" />
 
