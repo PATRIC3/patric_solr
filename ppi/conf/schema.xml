@@ -3,23 +3,25 @@
 	<fields>
 		<field name="id"	type="string"	indexed="true" stored="true" />
 
+		<field name="interactor_a"		type="string"	indexed="true" stored="true" />
+		<field name="interactor_type_a"		type="string"	indexed="true" stored="true" />
+		<field name="interactor_desc_a"		type="string_ci" indexed="true" stored="true" />
 		<field name="taxon_id_a"		type="int"	indexed="true" stored="true" />
 		<field name="genome_id_a"		type="string"	indexed="true" stored="true" />
 		<field name="genome_name_a"		type="string_ci" indexed="true" stored="true" />
 		<field name="feature_id_a"		type="string"	indexed="true" stored="true" />
-		<field name="patric_id_a"		type="string"	indexed="true" stored="true" />
 		<field name="refseq_locus_tag_a"	type="string"	indexed="true" stored="true" />
 		<field name="gene_a"			type="string"	indexed="true" stored="true" />
-		<field name="product_a"			type="string_ci" indexed="true" stored="true" />
 
+		<field name="interactor_b"		type="string"	indexed="true" stored="true" />
+		<field name="interactor_type_a"		type="string"	indexed="true" stored="true" />
+		<field name="interactor_desc_b"		type="string_ci" indexed="true" stored="true" />
 		<field name="taxon_id_b"		type="int"	indexed="true" stored="true" />
 		<field name="genome_id_b"		type="string"	indexed="true" stored="true" />
 		<field name="genome_name_b"		type="string_ci" indexed="true" stored="true" />
 		<field name="feature_id_b"		type="string"	indexed="true" stored="true" />
-		<field name="patric_id_b"		type="string"	indexed="true" stored="true" />
 		<field name="refseq_locus_tag_b"	type="string"	indexed="true" stored="true" />
 		<field name="gene_b"			type="string"	indexed="true" stored="true" />
-		<field name="product_b"			type="string_ci" indexed="true" stored="true" />
 
 		<field name="category"		type="string"	indexed="true" stored="true" />
 		<field name="interaction_type"	type="string_ci" indexed="true" stored="true" docValues="true" />
@@ -40,23 +42,22 @@
 
 	<solrQueryParser defaultOperator="AND"/>
 
+	<copyField source="interactor_a"	dest="text"/>
+	<copyField source="interactor_desc_a"	dest="text"/>
 	<copyField source="genome_id_a"		dest="text"/>
 	<copyField source="genome_name_a"	dest="text"/>
-	<copyField source="patric_id_a"		dest="text"/>
 	<copyField source="refseq_locus_tag_a"	dest="text"/>
 	<copyField source="gene_a"		dest="text"/>
-	<copyField source="product_a"		dest="text"/>
 
+	<copyField source="interactor_b"	dest="text"/>
+	<copyField source="interactor_desc_b"	dest="text"/>
 	<copyField source="genome_id_b"		dest="text"/>
 	<copyField source="genome_name_b"	dest="text"/>
-	<copyField source="patric_id_b"		dest="text"/>
 	<copyField source="refseq_locus_tag_b"	dest="text"/>
 	<copyField source="gene_b"		dest="text"/>
-	<copyField source="product_b"		dest="text"/>
 
 	<copyField source="interaction_type"	dest="text"/>
 	<copyField source="detection_method"	dest="text"/>
-	<copyField source="pmid"		dest="text"/>
 	<copyField source="source_db"		dest="text"/>
 	<copyField source="source_id"		dest="text"/>
 
