@@ -6,20 +6,20 @@
 		<field name="antibiotic_name"	type="string_ci"	indexed="true"	stored="true" docValues="true"/>
 		<field name="chemical_names"	type="string_ci"	indexed="true"	stored="true" docValues="true" multiValued="true"/>
 		
-		<field name="molecular_fomula"	type="string"		indexed="true"	stored="true"/>
+		<field name="molecular_formula"	type="string"		indexed="true"	stored="true"/>
 		<field name="molecular_weight"	type="string"		indexed="true"	stored="true"/>
-		<field name="inchl_key"		type="string"		indexed="true"	stored="true"/>
-		<field name="cacnonical_smiles"	type="string"		indexed="true"	stored="true"/>
-		<field name="isometric_smiles"	type="string"		indexed="true"	stored="true"/>
-		<field name="2d_structure"	type="string"		indexed="true"	stored="true"/><!-- ? -->
-		<field name="3d_conformer"	type="string"		indexed="true"	stored="true"/><!-- ? -->
+		<field name="inchi_key"		type="string"		indexed="true"	stored="true"/>
+		<field name="canonical_smiles"	type="string"		indexed="true"	stored="true"/>
+		<field name="isomeric_smiles"	type="string"		indexed="true"	stored="true"/>
+<!--		<field name="2d_structure"	type="string"		indexed="true"	stored="true"/>
+		<field name="3d_conformer"	type="string"		indexed="true"	stored="true"/> -->
 		
 		<field name="description"	type="string"		indexed="true"	stored="true" multiValued="true"/>
 		<field name="pharmacology"	type="string"		indexed="true"	stored="true" multiValued="true"/>
-		<field name="pharmacological_classes"	type="string"		indexed="true"	stored="true"/>
+		<field name="pharmacological_classes"	type="string"		indexed="true"	stored="true" multiValued="true"/>
 		<field name="mechanism_of_action"	type="string"		indexed="true"	stored="true" multiValued="true"/>
 		<field name="drugbank_interactions"	type="string"		indexed="true"	stored="true" multiValued="true"/>
-		<field name="mesh_tree"	type="string"		indexed="true"	stored="true"/>
+		<field name="mesh_tree"	type="string"		indexed="true"	stored="true" multiValued="true"/>
 
 		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
 		<field name="_version_"		type="long"		indexed="true"	stored="true"/>
