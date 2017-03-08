@@ -83,7 +83,7 @@
 			<str name="df">text</str>
 			<str name="spellcheck.dictionary">default</str>
 			<str name="spellcheck.count">1</str>
-			<str name="fl">pubchem_cid,cas_id,antibiotic_name,chemical_names,molecular_formula,molecular_weight,inchi_key,canonical_smiles,isomeric_smiles,description,pharmacology,pharmacological_classes,mechanism_of_action,drugbank_interactions,mesh_tree</str>
+			<str name="fl">pubchem_cid,cas_id,antibiotic_name,synonyms,molecular_formula,molecular_weight,inchi_key,canonical_smiles,isomeric_smiles,description,pharmacology,pharmacological_classes,mechanism_of_action,drugbank_interactions,atc_classification</str>
 		</lst>
 	</requestHandler>
 
