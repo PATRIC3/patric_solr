@@ -28,6 +28,7 @@
 		<field name="category"		type="string"	indexed="true" stored="true" />
 		<field name="interaction_type"	type="string_ci" indexed="true" stored="true" docValues="true" />
 		<field name="detection_method"	type="string_ci" indexed="true" stored="true" docValues="true" />
+		<field name="evidence"		type="string"	indexed="true"	stored="true" docValues="true" />
 
 		<field name="pmid"		type="string"	indexed="true" stored="true" multiValued="true" />
 		<field name="source_db"		type="string"	indexed="true" stored="true" multiValued="true" />
