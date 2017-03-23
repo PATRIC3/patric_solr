@@ -6,7 +6,7 @@
 		<field name="interactor_a"		type="string"	indexed="true" stored="true" />
 		<field name="interactor_type_a"		type="string"	indexed="true" stored="true" />
 		<field name="interactor_desc_a"		type="string_ci" indexed="true" stored="true" docValues="true" />
-		<field name="domain_a"		type="string"	indexed="true" stored="true" />
+		<field name="domain_a"			type="string"	indexed="true" stored="true" />
 		<field name="taxon_id_a"		type="int"	indexed="true" stored="true" />
 		<field name="genome_id_a"		type="string"	indexed="true" stored="true" />
 		<field name="genome_name_a"		type="string_ci" indexed="true" stored="true" docValues="true" />
@@ -17,7 +17,7 @@
 		<field name="interactor_b"		type="string"	indexed="true" stored="true" />
 		<field name="interactor_type_b"		type="string"	indexed="true" stored="true" />
 		<field name="interactor_desc_b"		type="string_ci" indexed="true" stored="true" docValues="true" />
-		<field name="domain_b"		type="string"	indexed="true" stored="true" />
+		<field name="domain_b"			type="string"	indexed="true" stored="true" />
 		<field name="taxon_id_b"		type="int"	indexed="true" stored="true" />
 		<field name="genome_id_b"		type="string"	indexed="true" stored="true" />
 		<field name="genome_name_b"		type="string_ci" indexed="true" stored="true" docValues="true" />
@@ -26,9 +26,9 @@
 		<field name="gene_b"			type="string"	indexed="true" stored="true" />
 
 		<field name="category"		type="string"	indexed="true" stored="true" />
-		<field name="interaction_type"	type="string_ci" indexed="true" stored="true" docValues="true" />
-		<field name="detection_method"	type="string_ci" indexed="true" stored="true" docValues="true" />
-		<field name="evidence"		type="string"	indexed="true"	stored="true" docValues="true" />
+		<field name="interaction_type"	type="string_ci" indexed="true" stored="true" docValues="true" multiValued="true" />
+		<field name="detection_method"	type="string_ci" indexed="true" stored="true" docValues="true" multiValued="true" />
+		<field name="evidence"		type="string"	indexed="true"	stored="true" docValues="true" multiValued="true" />
 
 		<field name="pmid"		type="string"	indexed="true" stored="true" multiValued="true" />
 		<field name="source_db"		type="string"	indexed="true" stored="true" multiValued="true" />
