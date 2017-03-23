@@ -33,7 +33,7 @@
 		<field name="pmid"		type="string"	indexed="true" stored="true" multiValued="true" />
 		<field name="source_db"		type="string"	indexed="true" stored="true" multiValued="true" />
 		<field name="source_id"		type="string"	indexed="true" stored="true" multiValued="true" />
-		<field name="score"		type="string"	indexed="true" stored="true" />
+		<field name="score"		type="string"	indexed="true" stored="true" multiValued="true" />
 
 		<field name="text"		type="text_custom" indexed="true" stored="false" multiValued="true" />
 		<field name="_version_"		type="long"	indexed="true" stored="true" />
