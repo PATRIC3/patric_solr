@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="subsystem" version="1.5">
+	<fields>
+		<field name="id"		type="string"	indexed="true"	stored="true"/>
+
+		<field name="genome_id"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="genome_name"	type="string_ci" indexed="true"	stored="true"	docValues="true"/>
+		<field name="taxon_id"		type="int"	indexed="true"	stored="true"/>
+
+		<field name="feature_id"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="alt_locus_tag"	type="string"	indexed="true"	stored="true"/>
+		<field name="refseq_locus_tag"	type="string"	indexed="true"	stored="true"/>
+		<field name="patric_id"		type="string"	indexed="true"	stored="true"/>
+
+		<field name="gene"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="product"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="role_id"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="role_name"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="subsystem_id"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="subsystem_name"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="class"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="subclass"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="active"		type="string"	indexed="true"	stored="true"	docValues="true"/>
+
+		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
+		<field name="_version_"		type="long"		indexed="true"	stored="true"/>
+		<field name="date_inserted"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+		<field name="date_modified"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
+
+		<!-- privilege control -->
+		<field name="public"		type="boolean"		indexed="true"	stored="true"/>
+		<field name="owner"		type="string"		indexed="true"	stored="true"/>
+		<field name="user_read"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="user_write"	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+	</fields>
+
+	<uniqueKey>id</uniqueKey>
+	<solrQueryParser defaultOperator="AND"/>
+
+	<!-- copy field for global search -->
+	<copyField source="genome_name"		dest="text"/>
+	<copyField source="alt_locus_tag"	dest="text"/>
+	<copyField source="gene"		dest="text"/>
+	<copyField source="product"		dest="text"/>
+	<copyField source="role_id"		dest="text"/>
+	<copyField source="role_name"		dest="text"/>
+	<copyField source="subsystem_id"	dest="text"/>
+	<copyField source="subsystem_name"	dest="text"/>
+	<copyField source="class"		dest="text"/>
+	<copyField source="subclass"		dest="text"/>
+
+	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
+		<xi:fallback></xi:fallback>
+	</xi:include>
+</schema>
