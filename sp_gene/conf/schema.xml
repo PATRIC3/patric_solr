@@ -23,6 +23,7 @@
 		<field name="organism"		type="string"	indexed="true"	stored="true"/>
 		<field name="function"		type="string"	indexed="true"	stored="true"/>
 		<field name="classification"	type="string"	indexed="true"	stored="true"/>
+		<field name="antibiotics"	type="string"	indexed="true"	stored="true"	docValues="true" multiValued="true"/>
 
 		<field name="pmid"		type="string"	indexed="true"	stored="true"/>
 		<field name="assertion"		type="string"	indexed="true"	stored="false"/>
@@ -64,6 +65,7 @@
 	<copyField source="organism"		dest="text"/>
 	<copyField source="function"		dest="text"/>
 	<copyField source="classification"	dest="text"/>
+	<copyField source="antibiotics"		dest="text"/>
 	<copyField source="assertion"		dest="text"/>
 
 	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
