@@ -19,6 +19,7 @@
 		<field name="product"		type="string"	indexed="true"	stored="true"/>
 		<field name="function"		type="string"	indexed="true"	stored="true"/>
 		<field name="classification"	type="string"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="antibiotics_class"	type="string"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="antibiotics"	type="string"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 
 		<field name="pmid"		type="string"	indexed="true"	stored="true"/>
@@ -43,6 +44,7 @@
 	<copyField source="product"	dest="text"/>
 	<copyField source="function"	dest="text"/>
 	<copyField source="classification" dest="text"/>
+	<copyField source="antibiotics_class" dest="text"/>
 	<copyField source="antibiotics" dest="text"/>
 	<copyField source="pmid"	dest="text"/>
 	<copyField source="assertion"	dest="text"/>
