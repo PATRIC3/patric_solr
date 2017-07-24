@@ -26,7 +26,7 @@
 		<field name="antibiotics_class"	type="string"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="antibiotics"	type="string"	indexed="true"	stored="true"	docValues="true" multiValued="true"/>
 
-		<field name="pmid"		type="string"	indexed="true"	stored="true"/>
+		<field name="pmid"		type="string"	indexed="true"	stored="true"	docValues="true" multiValued="true"/>
 		<field name="assertion"		type="string"	indexed="true"	stored="false"/>
 
 		<field name="query_coverage"	type="int"	indexed="true"	stored="true"/>
