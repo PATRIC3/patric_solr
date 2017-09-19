@@ -81,7 +81,7 @@
 			<str name="echoParams">explicit</str>
 			<int name="rows">10</int>
 			<str name="df">text</str>
-			<str name="fl">id,genome_id,genome_name,taxon_id,feature_id,alt_locus_tag,refseq_locus_tag,patric_id,gene,product,role_id,role_name,subsystem_id,subsystem_name,class,subclass,active,date_inserted,date_modified</str>
+			<str name="fl">id,genome_id,genome_name,taxon_id,feature_id,alt_locus_tag,refseq_locus_tag,patric_id,gene,product,role_id,role_name,subsystem_id,subsystem_name,superclass,class,subclass,active,date_inserted,date_modified</str>
 		</lst>
 	</requestHandler>
 

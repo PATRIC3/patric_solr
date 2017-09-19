@@ -5,6 +5,7 @@
 
 		<field name="subsystem_id"	type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="subsystem_name"	type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="superclass"	type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="class"		type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="subclass"		type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="description"	type="string"		indexed="true"	stored="true"/>
@@ -25,6 +26,7 @@
 
 	<copyField source="subsystem_id"	dest="text"/>
 	<copyField source="subsystem_name"	dest="text"/>
+	<copyField source="superclass"		dest="text"/>
 	<copyField source="class"		dest="text"/>
 	<copyField source="subclass"		dest="text"/>
 	<copyField source="description"		dest="text"/>
