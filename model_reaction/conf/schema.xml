@@ -15,16 +15,16 @@
 		<field name="definition"	type="string"		indexed="true"	stored="true"/>
 		<field name="reversibility"	type="string"		indexed="true"	stored="true"/>
 		<field name="direction"		type="string"		indexed="true"	stored="true"/>
-		<field name="abstract_reaction"		type="string"	indexed="true"	stored="true"/>
+		<field name="abstract_reaction"	type="string"	indexed="true"	stored="true"/>
 		<field name="pathways"		type="string"		indexed="true"	stored="true"	multiValued="true"/>
 		<field name="aliases"		type="string_ci"	indexed="true"	stored="true"	multiValued="true"/>
-		<field name="ec_numbers"	type="string"		indexed="true"	stored="true" multiValued="true"/>
+		<field name="ec_numbers"	type="string"		indexed="true"	stored="true"	multiValued="true"/>
 		<field name="deltag"		type="float"		indexed="true"	stored="true"/>
 		<field name="deltagerr"		type="float"		indexed="true"	stored="true"/>
 		<field name="compound_ids"	type="string"		indexed="true"	stored="true"	multiValued="true"/>
 		<field name="is_obsolete"	type="string"		indexed="true"	stored="true"/>
 		<field name="linked_reaction"	type="string"		indexed="true"	stored="true"/>
-		<field name="status"	type="string"		indexed="true"	stored="true"/>
+		<field name="status"		type="string"		indexed="true"	stored="true"/>
 		
 		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
 		<field name="_version_"		type="long"		indexed="true"	stored="true"/>
@@ -35,11 +35,11 @@
 	<uniqueKey>id</uniqueKey>
 	<solrQueryParser defaultOperator="AND"/>
 	
-	<copyField source="id"		dest="text"/>
-	<copyField source="abbreviation"		dest="text"/>
-	<copyField source="name"		dest="text"/>
-	<copyField source="code"		dest="text"/>
-	<copyField source="aliases"		dest="text"/>
+	<copyField source="id"	dest="text"/>
+	<copyField source="abbreviation"	dest="text"/>
+	<copyField source="name"	dest="text"/>
+	<copyField source="code"	dest="text"/>
+	<copyField source="aliases"	dest="text"/>
 
 	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
 		<xi:fallback></xi:fallback>
