@@ -22,8 +22,6 @@
 
 	<uniqueKey>id</uniqueKey>
 
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="property"		dest="text"/>
 	<copyField source="source"		dest="text"/>
 	<copyField source="source_id"		dest="text"/>

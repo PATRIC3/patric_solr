@@ -22,8 +22,6 @@
 
 	<uniqueKey>id</uniqueKey>
 
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="subsystem_id"	dest="text"/>
 	<copyField source="subsystem_name"	dest="text"/>
 	<copyField source="superclass"		dest="text"/>

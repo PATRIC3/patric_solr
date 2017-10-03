@@ -34,8 +34,6 @@
 
 	<uniqueKey>id</uniqueKey>
 	
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="alt_locus_tag"	dest="text"/>
 	<copyField source="refseq_locus_tag"	dest="text"/>
 	<copyField source="patric_id"		dest="text"/>

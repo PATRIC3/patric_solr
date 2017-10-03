@@ -43,8 +43,6 @@
 
 	<uniqueKey>id</uniqueKey>
 
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="interactor_a"	dest="text"/>
 	<copyField source="interactor_desc_a"	dest="text"/>
 	<copyField source="genome_id_a"		dest="text"/>

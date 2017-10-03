@@ -37,7 +37,6 @@
 	</fields>
 
 	<uniqueKey>sequence_id</uniqueKey>
-	<solrQueryParser defaultOperator="AND"/>
 
 	<!-- copy fields for global search -->
 	<copyField source="genome_name"		dest="text"/>

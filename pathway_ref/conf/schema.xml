@@ -23,8 +23,6 @@
 
 	<uniqueKey>id</uniqueKey>
 
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="pathway_name"	dest="text"/>
 	<copyField source="pathway_class"	dest="text"/>
 	<copyField source="ec_description"	dest="text"/>

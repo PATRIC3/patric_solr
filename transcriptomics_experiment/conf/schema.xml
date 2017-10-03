@@ -41,8 +41,6 @@
 	
 	<uniqueKey>eid</uniqueKey>
 	
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="accession"		dest="text"/>
 	<copyField source="institution"		dest="text"/>
 	<copyField source="pi"			dest="text"/>

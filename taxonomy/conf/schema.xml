@@ -23,8 +23,6 @@
 
 	<uniqueKey>taxon_id</uniqueKey>
 	
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="taxon_name" dest="text"/>
 	<copyField source="description" dest="text"/>
 	

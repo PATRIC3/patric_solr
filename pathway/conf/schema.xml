@@ -45,7 +45,6 @@
 	</fields>
 
 	<uniqueKey>id</uniqueKey>
-	<solrQueryParser defaultOperator="AND"/>
 
 	<copyField source="annotation"		dest="annotation_sort"/>
 

@@ -13,8 +13,6 @@
 
 	<uniqueKey>family_id</uniqueKey>
 
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="family_id"	dest="text"/>
 	<copyField source="family_type"	dest="text"/>
 	<copyField source="family_product"	dest="text"/>

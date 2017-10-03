@@ -34,7 +34,6 @@
 	</fields>
 
 	<uniqueKey>id</uniqueKey>
-	<solrQueryParser defaultOperator="AND"/>
 	
 	<copyField source="id"		dest="text"/>
 

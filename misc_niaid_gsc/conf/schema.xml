@@ -20,7 +20,6 @@
 	</fields>
 
 	<uniqueKey>target_id</uniqueKey>
-	<solrQueryParser defaultOperator="AND"/>
 
 	<copyField source="target_status"	dest="text"/>
 	<copyField source="selection_criteria"	dest="text"/>

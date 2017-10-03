@@ -47,7 +47,6 @@
 	<uniqueKey>KEY</uniqueKey>
 -->
 
-	<solrQueryParser defaultOperator="AND"/>
 
 	<copyField source="study_id" dest="text" />
 	<copyField source="study_title" dest="text" />

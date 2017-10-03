@@ -40,8 +40,6 @@
 
 	<uniqueKey>pid</uniqueKey>
 	
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="accession"		dest="text"/>
 	<copyField source="samples"		dest="text"/>
 	<copyField source="expname"		dest="text"/>

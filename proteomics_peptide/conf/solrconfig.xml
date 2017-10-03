@@ -86,6 +86,7 @@
 			<str name="df">text</str>
 			<str name="spellcheck.dictionary">default</str>
 			<str name="spellcheck.count">1</str>
+			<str name="q.op">AND</str>
 		</lst>
 	</requestHandler>
 <!--

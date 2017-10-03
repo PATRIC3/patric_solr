@@ -49,8 +49,6 @@
 	<copyField source="pmid"	dest="text"/>
 	<copyField source="assertion"	dest="text"/>
 
-	<solrQueryParser defaultOperator="AND"/>
-
 	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
 		<xi:fallback></xi:fallback>
 	</xi:include>

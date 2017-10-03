@@ -33,7 +33,6 @@
 	</fields>
 
 	<uniqueKey>id</uniqueKey>
-	<solrQueryParser defaultOperator="AND"/>
 	
 	<copyField source="id"	dest="text"/>
 	<copyField source="abbreviation"	dest="text"/>

@@ -42,7 +42,6 @@ testing_standard	testing_standard_year	source	 -->
 	</fields>
 
 	<uniqueKey>id</uniqueKey>
-	<solrQueryParser defaultOperator="AND"/>
 	
 	<copyField source="genome_name"		dest="text"/>
 	<copyField source="antibiotic"		dest="text"/>

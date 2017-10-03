@@ -53,8 +53,6 @@
 
 	<uniqueKey>id</uniqueKey>
 
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="genome_name"		dest="text"/>
 	<copyField source="alt_locus_tag"	dest="text"/>
 	<copyField source="refseq_locus_tag"	dest="text"/>

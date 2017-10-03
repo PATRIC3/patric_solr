@@ -38,8 +38,6 @@
 
 	<uniqueKey>interaction_id</uniqueKey>
 
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="annotation_a"	dest="text"/>
 	<copyField source="annotation_b"	dest="text"/>
 	<copyField source="type_name"		dest="text"/>

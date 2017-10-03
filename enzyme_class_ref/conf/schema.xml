@@ -13,8 +13,6 @@
 
 	<uniqueKey>ec_number</uniqueKey>
 
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="ec_number"	dest="text"/>
 	<copyField source="ec_description"	dest="text"/>
 	<copyField source="go"	dest="text"/>

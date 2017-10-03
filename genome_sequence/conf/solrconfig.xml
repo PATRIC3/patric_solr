@@ -83,6 +83,7 @@
 			<str name="df">text</str>
 			<str name="spellcheck.dictionary">default</str>
 			<str name="spellcheck.count">1</str>
+			<str name="q.op">AND</str>
 			<str name="fl">owner,gi,genome_id,genome_name,topology,chromosome,length,plasmid,description,taxon_id,accession,version,sequence,sequence_type,public,release_date,sequence_id,gc_content,date_inserted,date_modified</str>
 		</lst>
 	</requestHandler>

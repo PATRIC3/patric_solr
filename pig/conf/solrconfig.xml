@@ -86,6 +86,7 @@
 			<str name="df">text</str>
 			<str name="spellcheck.dictionary">default</str>
 			<str name="spellcheck.count">1</str>
+			<str name="q.op">AND</str>
 			<str name="fl">type_name,taxon_a,taxon_b,xref_b,xref_a,primary_id_b,interactor_a,primary_id_a,taxid_b,interactor_b,taxid_a,id_in_repository,annotation_a,annotation_b,litref,method_name,repository_id,group_a,repository_name,taxpath_a,group_b,taxpath_b,is_hpi,type_id,interaction_id,method_id,brc_ids_a,brc_ids_b</str>
 		</lst>
 	</requestHandler>

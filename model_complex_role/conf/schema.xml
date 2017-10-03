@@ -27,7 +27,6 @@
 	</fields>
 
 	<uniqueKey>id</uniqueKey>
-	<solrQueryParser defaultOperator="AND"/>
 	
 	<copyField source="role_name"		dest="text"/>
 	<copyField source="role_aliases"		dest="text"/>

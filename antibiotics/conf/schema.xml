@@ -27,8 +27,6 @@
 
 	<uniqueKey>pubchem_cid</uniqueKey>
 
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="pubchem_cid"	dest="text"/>
 	<copyField source="cas_id"	dest="text"/>
 	<copyField source="antibiotic_name"	dest="text"/>

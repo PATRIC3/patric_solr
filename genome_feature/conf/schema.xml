@@ -64,7 +64,6 @@
 	</fields>
 
 	<uniqueKey>feature_id</uniqueKey>
-	<solrQueryParser defaultOperator="AND"/>
 
 	<copyField source="annotation"		dest="annotation_sort"/>
 

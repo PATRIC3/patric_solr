@@ -15,8 +15,6 @@
 
 	<uniqueKey>go_id</uniqueKey>
 
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="go_name"	dest="text"/>
 	<copyField source="ontology"	dest="text"/>
 	<copyField source="definition"	dest="text"/>

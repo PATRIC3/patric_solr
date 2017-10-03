@@ -123,7 +123,6 @@
 	</fields>
 
 	<uniqueKey>genome_id</uniqueKey>
-	<solrQueryParser defaultOperator="AND"/>
 	
 	<copyField source="*" dest="text"/>
 

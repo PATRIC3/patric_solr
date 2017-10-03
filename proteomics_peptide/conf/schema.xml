@@ -17,8 +17,6 @@
 		<field name="date_modified"	type="tdate"		indexed="true"	stored="true" default="NOW" />
 	</fields>
 	
-	<solrQueryParser defaultOperator="AND"/>
-
 	<copyField source="experiment_id" dest="text" />
 	<copyField source="source" dest="text" />
 	<copyField source="accession" dest="text" />

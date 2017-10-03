@@ -86,6 +86,7 @@
 			<str name="df">text</str>
 			<str name="spellcheck.dictionary">default</str>
 			<str name="spellcheck.count">1</str>
+			<str name="q.op">AND</str>
 			<str name="fl">uniprotkb_accession,id_type,id_value,date_inserted,date_modified</str>
 		</lst>
 	</requestHandler>
