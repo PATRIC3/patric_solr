@@ -90,10 +90,6 @@
 			<str name="fl">eid,pid,accession,platform,expname,sig_log_ratio,sig_z_score,expmean,strain,organism,genes,pmid,genome_ids,samples,condition,channels,release_date,expstddev,mutant,expid,timepoint,date_inserted,date_modified</str>
 		</lst>
 	</requestHandler>
-	<!--
-	<xi:include href="browse-config.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
-		<xi:fallback></xi:fallback>
-	</xi:include>-->
 
 	<requestHandler name="/get" class="solr.RealTimeGetHandler">
 		<lst name="defaults">

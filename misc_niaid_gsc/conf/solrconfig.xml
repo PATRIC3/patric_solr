@@ -90,10 +90,6 @@
 			<str name="fl">strain,has_proteins,target_id,has_clones,gene_symbol_collection,selection_criteria,species,genus,target_status,date_inserted,date_modified</str>
 		</lst>
 	</requestHandler>
-<!--
-	<xi:include href="browse-config.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
-		<xi:fallback></xi:fallback>
-	</xi:include>-->
 
 	<requestHandler name="/get" class="solr.RealTimeGetHandler">
 		<lst name="defaults">

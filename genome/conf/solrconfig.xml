@@ -87,9 +87,6 @@
 			<str name="fl">taxon_lineage_ids,collection_date,collection_year,habitat,genome_id,genome_name,other_typing,body_sample_site,contigs,patric_cds,publication,genome_status,isolation_site,temperature_range,isolation_country,common_name,order,longitude,strain,chromosomes,biovar,biosample_accession,isolation_comments,cell_shape,p2_genome_id,genbank_accessions,culture_collection,refseq_accessions,genus,antimicrobial_resistance_evidence,organism_name,additional_metadata,altitude,sequencing_platform,host_gender,latitude,refseq_cds,other_clinical,sra_accession,body_sample_subsite,sequences,genome_length,public,reference_genome,oxygen_requirement,taxon_lineage_names,gram_stain,gc_content,antimicrobial_resistance,class,pathovar,sporulation,document_type,ncbi_project_id,owner,sequencing_depth,salinity,optimal_temperature,comments,disease,geographic_location,taxon_id,plasmids,kingdom,assembly_method,sequencing_centers,host_age,phylum,depth,mlst,species,assembly_accession,host_health,serovar,motility,refseq_project_id,brc1_cds,type_strain,completion_date,sequencing_status,family,bioproject_accession,host_name,isolation_source,date_inserted,date_modified</str>
 		</lst>
 	</requestHandler>
-	<xi:include href="browse-config.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
-		<xi:fallback></xi:fallback>
-	</xi:include>
   <!-- A request handler that returns indented JSON by default
   <requestHandler name="/query" class="solr.SearchHandler">
      <lst name="defaults">

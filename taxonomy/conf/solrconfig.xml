@@ -87,10 +87,6 @@
 			<str name="fl">lineage,lineage_ids,genetic_code,genomes,lineage_names,taxon_id,taxon_name,taxon_rank,other_names,lineage_ranks,parent_id,division,description,date_inserted,date_modified</str>
 		</lst>
 	</requestHandler>
-	<!--
-	<xi:include href="browse-config.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
-		<xi:fallback></xi:fallback>
-	</xi:include>-->
 
 	<requestHandler name="/get" class="solr.RealTimeGetHandler">
 		<lst name="defaults">

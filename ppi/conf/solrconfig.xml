@@ -90,10 +90,6 @@
 			<str name="fl">id,interactor_a,interactor_type_a,interactor_desc_a,domain_a,taxon_id_a,genome_id_a,genome_name_a,feature_id_a,refseq_locus_tag_a,gene_a,interactor_b,interactor_type_b,interactor_desc_b,domain_b,taxon_id_b,genome_id_b,genome_name_b,feature_id_b,refseq_locus_tag_b,gene_b,category,interaction_type,detection_method,evidence,pmid,source_db,source_id,score</str>
 		</lst>
 	</requestHandler>
-<!--
-	<xi:include href="browse-config.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
-		<xi:fallback></xi:fallback>
-	</xi:include>-->
 
 	<requestHandler name="/get" class="solr.RealTimeGetHandler">
 		<lst name="defaults">

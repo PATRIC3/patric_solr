@@ -89,10 +89,6 @@
 			<str name="q.op">AND</str>
 		</lst>
 	</requestHandler>
-<!--
-	<xi:include href="browse-config.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
-		<xi:fallback></xi:fallback>
-	</xi:include>-->
 
 	<requestHandler name="/get" class="solr.RealTimeGetHandler">
 		<lst name="defaults">
