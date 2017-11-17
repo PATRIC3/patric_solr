@@ -32,7 +32,7 @@
 		</updateLog>
 		<autoCommit>
 			<maxDocs>20000</maxDocs>
-			<openSearcher>false</openSearcher> 
+			<openSearcher>true</openSearcher>
 		</autoCommit>
 	</updateHandler>
 
