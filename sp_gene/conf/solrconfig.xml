@@ -34,7 +34,7 @@
 			<str name="dir">${solr.ulog.dir:}</str>
 		</updateLog>
 		<autoCommit>
-			<maxDocs>20000</maxDocs>
+			<maxDocs>-1</maxDocs>
 			<openSearcher>true</openSearcher>
 		</autoCommit>
 	</updateHandler>
@@ -44,6 +44,7 @@
 		<filterCache class="solr.FastLRUCache" size="512" initialSize="512" autowarmCount="0"/>
 		<queryResultCache class="solr.FastLRUCache" size="512" initialSize="512" autowarmCount="0"/>
 		<documentCache class="solr.FastLRUCache" size="512" initialSize="512" autowarmCount="0"/>
+		<fieldValueCache class="solr.FastLRUCache" size="512" initialSize="512" autowarmCount="0"/>
 
 		<!-- custom cache currently used by block join -->
 		<cache name="perSegFilter" class="solr.search.LRUCache" size="10" initialSize="0"
@@ -60,13 +61,10 @@
 		</listener>
 		<listener event="firstSearcher" class="solr.QuerySenderListener">
 			<arr name="queries">
-				<lst>
-					<str name="q">static firstSearcher warming in solrconfig.xml</str>
-				</lst>
 			</arr>
 		</listener>
 
-		<useColdSearcher>true</useColdSearcher>
+		<useColdSearcher>false</useColdSearcher>
 
 		<maxWarmingSearchers>32</maxWarmingSearchers>
 	</query>
