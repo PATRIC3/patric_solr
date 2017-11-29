@@ -30,10 +30,6 @@
 		<updateLog>
 			<str name="dir">${solr.ulog.dir:}</str>
 		</updateLog>
-		<autoCommit>
-			<maxDocs>20000</maxDocs>
-			<openSearcher>false</openSearcher> 
-		</autoCommit>
 	</updateHandler>
 
 	<query>
@@ -57,15 +53,12 @@
 		</listener>
 		<listener event="firstSearcher" class="solr.QuerySenderListener">
 			<arr name="queries">
-				<lst>
-					<str name="q">static firstSearcher warming in solrconfig.xml</str>
-				</lst>
 			</arr>
 		</listener>
 
-		<useColdSearcher>true</useColdSearcher>
+		<useColdSearcher>false</useColdSearcher>
 
-		<maxWarmingSearchers>10</maxWarmingSearchers>
+		<maxWarmingSearchers>2</maxWarmingSearchers>
 	</query>
 
 	<requestDispatcher handleSelect="false" >
