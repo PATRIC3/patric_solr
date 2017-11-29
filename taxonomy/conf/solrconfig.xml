@@ -31,7 +31,7 @@
 			<str name="dir">${solr.ulog.dir:}</str>
 		</updateLog>
 		<autoCommit>
-			<maxDocs>-1</maxDocs>
+			<maxTime>300000</maxTime>
 			<openSearcher>true</openSearcher>
 		</autoCommit>
 	</updateHandler>
@@ -63,7 +63,7 @@
 
 		<useColdSearcher>false</useColdSearcher>
 
-		<maxWarmingSearchers>32</maxWarmingSearchers>
+		<maxWarmingSearchers>2</maxWarmingSearchers>
 	</query>
 
 	<requestDispatcher handleSelect="false" >
