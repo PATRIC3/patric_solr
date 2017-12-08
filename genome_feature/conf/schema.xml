@@ -47,6 +47,7 @@
 		<field name="go"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 
 		<field name="uniprotkb_accession"	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="notes"     	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 
 		<field name="text"			type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
 		<field name="_version_"			type="long"		indexed="true"	stored="true"/>
