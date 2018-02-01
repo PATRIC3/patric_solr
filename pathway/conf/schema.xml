@@ -52,6 +52,8 @@
 	<copyField source="genome_name"		dest="text"/>
 	<copyField source="accession"		dest="text"/>
 	<copyField source="alt_locus_tag"	dest="text"/>
+	<copyField source="refseq_locus_tag"	dest="text"/>
+	<copyField source="patric_id"	dest="text"/>
 	<copyField source="gene"		dest="text"/>
 	<copyField source="product"		dest="text"/>
 	<copyField source="ec_number"		dest="text"/>
