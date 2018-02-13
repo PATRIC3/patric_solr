@@ -82,7 +82,7 @@
 			<str name="spellcheck.dictionary">default</str>
 			<str name="spellcheck.count">1</str>
 			<str name="q.op">AND</str>
-			<str name="fl">feature_id,genome_id,na_length,genome_name,alt_locus_tag,p2_feature_id,aa_sequence_md5,accession,segments,aa_sequence,strand,public,uniprotkb_accession,sequence_id,refseq_locus_tag,end,aa_length,ec,document_type,annotation,owner,product,gi,na_sequence,gene,start,pos_group,go,taxon_id,patric_id,feature_type,protein_id,figfam_id,plfam_id,pgfam_id,pathway,location,gene_id,date_inserted,date_modified</str>
+			<str name="fl">feature_id,genome_id,na_length,genome_name,alt_locus_tag,p2_feature_id,aa_sequence_md5,accession,segments,aa_sequence,strand,public,uniprotkb_accession,sequence_id,refseq_locus_tag,end,aa_length,ec,document_type,annotation,owner,product,gi,na_sequence,gene,start,pos_group,go,taxon_id,patric_id,feature_type,protein_id,figfam_id,plfam_id,pgfam_id,pathway,subsystem,location,gene_id,date_inserted,date_modified</str>
 		</lst>
 	</requestHandler>
 

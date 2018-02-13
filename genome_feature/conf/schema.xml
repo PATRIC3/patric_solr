@@ -44,6 +44,7 @@
 		<field name="pgfam_id"			type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="ec"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 		<field name="pathway"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="subsystem"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 		<field name="go"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 
 		<field name="uniprotkb_accession"	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
@@ -59,9 +60,9 @@
 		<field name="user_read"			type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 		<field name="user_write"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 
-                <!-- data api support -->
-		<field name="document_type"             type="string"           indexed="true"  stored="true"   docValues="true"/>
-		<field name="document_id"               type="string"           indexed="true"  stored="true"/>
+		<!-- data api support -->
+		<field name="document_type"		type="string"		indexed="true"  stored="true"	docValues="true"/>
+		<field name="document_id"		type="string"		indexed="true"  stored="true"/>
 	</fields>
 
 	<uniqueKey>feature_id</uniqueKey>
@@ -84,6 +85,7 @@
 	<copyField source="pgfam_id"		dest="text"/>
 	<copyField source="ec"			dest="text"/>
 	<copyField source="pathway"		dest="text"/>
+	<copyField source="subsystem"		dest="text"/>
 	<copyField source="go"			dest="text"/>
 	<copyField source="uniprotkb_accession"	dest="text"/>
 
