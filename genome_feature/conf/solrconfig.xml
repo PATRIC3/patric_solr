@@ -38,7 +38,7 @@
 
 	<query>
 		<maxBooleanClauses>500000</maxBooleanClauses>
-		<filterCache class="solr.FastLRUCache" size="512" initialSize="512" autowarmCount="0"/>
+		<filterCache class="solr.FastLRUCache" size="5120" initialSize="512" autowarmCount="0"/>
 		<queryResultCache class="solr.FastLRUCache" size="512" initialSize="512" autowarmCount="0"/>
 		<documentCache class="solr.FastLRUCache" size="512" initialSize="512" autowarmCount="0"/>
 
