@@ -27,7 +27,7 @@
 		<field name="biovar"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="pathovar"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="mlst"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
-		<field name="other_typing"			type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
+		<field name="other_typing"		type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
 		
 		<field name="culture_collection"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="type_strain"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
@@ -36,9 +36,9 @@
 		<field name="completion_date"		type="tdate"		indexed="true"	stored="true"/>
 		<field name="publication"		type="string"		indexed="true"	stored="true"	docValues="true"/>
 
-		<field name="bioproject_accession"		type="string"		indexed="true"	stored="true"	docValues="true"/>
-		<field name="biosample_accession"		type="string"		indexed="true"	stored="true"	docValues="true"/>
-		<field name="assembly_accession"		type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="bioproject_accession"	type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="biosample_accession"	type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="assembly_accession"	type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="sra_accession"		type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="ncbi_project_id"		type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="refseq_project_id"		type="string"		indexed="true"	stored="true"	docValues="true"/>
@@ -55,15 +55,16 @@
 		<field name="chromosomes"		type="int"		indexed="true"	stored="true"/>
 		<field name="plasmids"			type="int"		indexed="true"	stored="true"/>
 		<field name="contigs"			type="int"		indexed="true"	stored="true"/>
-		<field name="sequences"			type="int"		indexed="true"	stored="true"/>
+		<field name="sequences"			type="int"		indexed="true"	stored="true"/><!-- deprecate -->
 		<field name="genome_length"		type="int"		indexed="true"	stored="true"/>
 		<field name="gc_content"		type="float"		indexed="true"	stored="true"/>
 
 		<!-- annotation statistics -->
 		<field name="patric_cds"		type="int"		indexed="true"	stored="true"/>
-		<field name="brc1_cds"			type="int"		indexed="true"	stored="true"/>
+		<field name="brc1_cds"			type="int"		indexed="true"	stored="true"/><!-- deprecate -->
 		<field name="refseq_cds"		type="int"		indexed="true"	stored="true"/>
 
+		<!-- isolation metadata -->
 		<field name="isolation_site"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="isolation_source"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="isolation_comments"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
@@ -76,7 +77,7 @@
 		<field name="longitude"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="altitude"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="depth"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
-		<field name="other_environmental"			type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
+		<field name="other_environmental"	type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
 
 		<field name="host_name"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="host_gender"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
@@ -84,10 +85,10 @@
 		<field name="host_health"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="body_sample_site"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="body_sample_subsite"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
-		<field name="other_clinical"			type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
+		<field name="other_clinical"		type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
 		
-		<field name="antimicrobial_resistance"			type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
-		<field name="antimicrobial_resistance_evidence"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/> <!-- -->
+		<field name="antimicrobial_resistance"	type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
+		<field name="antimicrobial_resistance_evidence"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/> <!-- -->
 
 		<field name="gram_stain"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="cell_shape"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
@@ -99,9 +100,9 @@
 		<field name="oxygen_requirement"	type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="habitat"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 
-		<field name="disease"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="disease"			type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/>
 		
-		<field name="additional_metadata"			type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
+		<field name="additional_metadata"	type="string_ci"	indexed="true"	stored="true"	docValues="true" multiValued="true"/> <!-- -->
 
 		<field name="comments"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 
