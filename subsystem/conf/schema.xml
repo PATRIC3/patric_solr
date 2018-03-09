@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema name="subsystem" version="1.5">
 	<fields>
-		<field name="id"		type="string"	indexed="true"	stored="true"/>
+		<field name="id"		type="string"	indexed="true"	stored="true"	docValues="true"/>
 
 		<field name="genome_id"		type="string"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="genome_name"	type="string_ci" indexed="true"	stored="true"	docValues="true"/>
-		<field name="taxon_id"		type="int"	indexed="true"	stored="true"/>
+		<field name="taxon_id"		type="int"	indexed="true"	stored="true"	docValues="true"/>
 
 		<field name="feature_id"	type="string"	indexed="true"	stored="true"	docValues="true"/>
-		<field name="alt_locus_tag"	type="string"	indexed="true"	stored="true"/>
-		<field name="refseq_locus_tag"	type="string"	indexed="true"	stored="true"/>
-		<field name="patric_id"		type="string"	indexed="true"	stored="true"/>
+		<field name="refseq_locus_tag"	type="string"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="patric_id"		type="string"	indexed="true"	stored="true"	docValues="true"/>
 
 		<field name="gene"		type="string"	indexed="true"	stored="true"	docValues="true"/>
 		<field name="product"		type="string"	indexed="true"	stored="true"	docValues="true"/>
@@ -27,13 +26,13 @@
 		<field name="active"		type="string"	indexed="true"	stored="true"	docValues="true"/>
 
 		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
-		<field name="_version_"		type="long"		indexed="true"	stored="true"/>
+		<field name="_version_"		type="long"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="date_inserted"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
 		<field name="date_modified"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
 
 		<!-- privilege control -->
-		<field name="public"		type="boolean"		indexed="true"	stored="true"/>
-		<field name="owner"		type="string"		indexed="true"	stored="true"/>
+		<field name="public"		type="boolean"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="owner"		type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="user_read"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 		<field name="user_write"	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 	</fields>
@@ -42,7 +41,6 @@
 
 	<!-- copy field for global search -->
 	<copyField source="genome_name"		dest="text"/>
-	<copyField source="alt_locus_tag"	dest="text"/>
 	<copyField source="refseq_locus_tag"	dest="text"/>
 	<copyField source="patric_id"	dest="text"/>
 	<copyField source="gene"		dest="text"/>

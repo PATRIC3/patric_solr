@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema name="subsystem_ref" version="1.5">
 	<fields>
-		<field name="id"		type="string"		indexed="true"	stored="true"/>
+		<field name="id"		type="string"		indexed="true"	stored="true"	docValues="true"/>
 
 		<field name="subsystem_id"	type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="subsystem_name"	type="string"		indexed="true"	stored="true"	docValues="true"/>
@@ -17,7 +17,7 @@
 		<field name="notes"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 
 		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
-		<field name="_version_"		type="long"		indexed="true"	stored="true"/>
+		<field name="_version_"		type="long"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="date_inserted"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
 		<field name="date_modified"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
 	</fields>
