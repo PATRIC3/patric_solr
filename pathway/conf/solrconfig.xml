@@ -60,7 +60,7 @@
 			</arr>
 		</listener>
 
-		<useColdSearcher>false</useColdSearcher>
+		<useColdSearcher>true</useColdSearcher>
 
 		<maxWarmingSearchers>2</maxWarmingSearchers>
 	</query>

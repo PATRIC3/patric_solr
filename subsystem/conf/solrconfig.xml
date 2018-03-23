@@ -30,6 +30,10 @@
 		<updateLog>
 			<str name="dir">${solr.ulog.dir:}</str>
 		</updateLog>
+		<autoCommit>
+			<maxTime>300000</maxTime>
+			<openSearcher>true</openSearcher>
+		</autoCommit>
 	</updateHandler>
 
 	<query>
@@ -56,7 +60,7 @@
 			</arr>
 		</listener>
 
-		<useColdSearcher>false</useColdSearcher>
+		<useColdSearcher>true</useColdSearcher>
 
 		<maxWarmingSearchers>2</maxWarmingSearchers>
 	</query>
