@@ -50,6 +50,11 @@
 		<field name="uniprotkb_accession"	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 		<field name="notes"     	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 
+		<!-- specific to classifier_predicted_region feature type -->
+		<field name="classifier_score"	type="float"	indexed="true"	stored="true"	docValues="true"/>
+		<field name="classifier_round"	type="int"	indexed="true"	stored="true"	docValues="true"/>
+
+
 		<field name="text"			type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
 		<field name="_version_"			type="long"		indexed="true"	stored="true"/>
 		<field name="date_inserted"		type="tdate"		indexed="true"	stored="true" default="NOW"/>
