@@ -55,8 +55,6 @@
 		<field name="chromosomes"		type="int"		indexed="true"	stored="true"/>
 		<field name="plasmids"			type="int"		indexed="true"	stored="true"/>
 		<field name="contigs"			type="int"		indexed="true"	stored="true"/>
-		<field name="contigs_new"		type="int"		indexed="true"	stored="true"/><!-- for debugging -->
-		<field name="sequences"			type="int"		indexed="true"	stored="true"/><!-- deprecate -->
 		<field name="genome_length"		type="int"		indexed="true"	stored="true"/>
 		<field name="gc_content"		type="float"		indexed="true"	stored="true"/>
 		<field name="contig_l50"		type="int"		indexed="true"	stored="true"	docValues="true"/>
@@ -65,7 +63,6 @@
 
 		<!-- annotation statistics -->
 		<field name="patric_cds"		type="int"		indexed="true"	stored="true"/>
-		<field name="brc1_cds"			type="int"		indexed="true"	stored="true"/><!-- deprecate -->
 		<field name="refseq_cds"		type="int"		indexed="true"	stored="true"/>
 
 		<field name="trna"			type="int"		indexed="true"	stored="true"	docValues="true"/>
