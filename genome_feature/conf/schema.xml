@@ -9,7 +9,6 @@
 		<field name="accession"			type="string"		indexed="true"	stored="true"	docValues="true"/>
 
 		<field name="annotation"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
-		<field name="annotation_sort"		type="annotationType"	indexed="true"	stored="false"/>
 		<field name="feature_type"		type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
 
 		<field name="feature_id"		type="string"		indexed="true"	stored="true"	docValues="true"/>
@@ -21,19 +20,16 @@
 
 		<field name="protein_id"		type="string"		indexed="true"	stored="true"/>
 		<field name="gene_id"			type="long"		indexed="true"	stored="true"/>
-		<field name="gi"			type="long"		indexed="true"	stored="true"/>
 
 		<field name="start"			type="int"		indexed="true"	stored="true"/>
 		<field name="end"			type="int"		indexed="true"	stored="true"/>
 		<field name="strand"			type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="location"			type="string"		indexed="true"	stored="true"/>
 		<field name="segments"			type="string"		indexed="true"	stored="true"	multiValued="true"/>
-		<field name="pos_group"			type="string"		indexed="true"	stored="true"	docValues="true"/><!-- for backward compatibility, remove later -->
 
 		<field name="na_length"			type="int"		indexed="true"	stored="true"/>
 		<field name="aa_length"			type="int"		indexed="true"	stored="true"/>
-		<field name="na_sequence"		type="string"		indexed="false"	stored="true"/>
-		<field name="aa_sequence"		type="string"		indexed="false"	stored="true"/>
+		<field name="na_sequence_md5"		type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="aa_sequence_md5"		type="string"		indexed="true"	stored="true"	docValues="true"/>
 
 		<field name="gene"			type="string_ci"	indexed="true"	stored="true"	docValues="true"/>
@@ -42,12 +38,9 @@
 		<field name="figfam_id"			type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="plfam_id"			type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="pgfam_id"			type="string"		indexed="true"	stored="true"	docValues="true"/>
-		<field name="ec"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
-		<field name="pathway"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
-		<field name="subsystem"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 		<field name="go"			type="string_ci"	indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 
-		<field name="uniprotkb_accession"	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
+		<field name="property"			type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 		<field name="notes"     	type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 
 		<!-- specific to classifier_predicted_region feature type -->
@@ -64,15 +57,9 @@
 		<field name="owner"			type="string"		indexed="true"	stored="true"/>
 		<field name="user_read"			type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
 		<field name="user_write"		type="string"		indexed="true"	stored="true"	docValues="true"	multiValued="true"/>
-
-		<!-- data api support -->
-		<field name="document_type"		type="string"		indexed="true"  stored="true"	docValues="true"/>
-		<field name="document_id"		type="string"		indexed="true"  stored="true"/>
 	</fields>
 
 	<uniqueKey>feature_id</uniqueKey>
-
-	<copyField source="annotation"		dest="annotation_sort"/>
 
 	<!-- copy field for global search -->
 	<copyField source="genome_name"		dest="text"/>
@@ -88,13 +75,8 @@
 	<copyField source="figfam_id"		dest="text"/>
 	<copyField source="plfam_id"		dest="text"/>
 	<copyField source="pgfam_id"		dest="text"/>
-	<copyField source="ec"			dest="text"/>
-	<copyField source="pathway"		dest="text"/>
-	<copyField source="subsystem"		dest="text"/>
 	<copyField source="go"			dest="text"/>
-	<copyField source="uniprotkb_accession"	dest="text"/>
-
-	<fieldType name="annotationType" class="solr.EnumField" enumsConfig="enumsConfig.xml" enumName="annotations"/>
+	<copyField source="property"		dest="text"/>
 
 	<xi:include href="schema_types.xml" xmlns:xi="http://www.w3.org/2001/XInclude">
 		<xi:fallback></xi:fallback>
