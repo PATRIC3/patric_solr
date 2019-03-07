@@ -24,11 +24,17 @@ testing_standard	testing_standard_year	source	 -->
 		<field name="laboratory_typing_method_version"		type="string"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="laboratory_typing_platform"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="vendor"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
-		
+
+		<field name="computational_method"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="computational_method_version"	type="string"		indexed="true"	stored="true"	docValues="true"/>
+		<field name="computational_method_performance"	type="string"		indexed="true"	stored="true"	docValues="true"/>
+
 		<field name="testing_standard"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
 		<field name="testing_standard_year"		type="int"		indexed="true"	stored="true"/>
 		<field name="source"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
-		
+		<field name="pmid"		type="int"		indexed="true"	stored="true"	multiValued="true"/>
+		<field name="evidence"		type="string_ci"		indexed="true"	stored="true"	docValues="true"/>
+
 		<field name="text"		type="text_custom"	indexed="true"	stored="false"	multiValued="true"/>
 		<field name="_version_"		type="long"		indexed="true"	stored="true"/>
 		<field name="date_inserted"	type="tdate"		indexed="true"	stored="true" default="NOW"/>
