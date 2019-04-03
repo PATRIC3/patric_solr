@@ -37,6 +37,7 @@
 
 	<uniqueKey>taxon_id</uniqueKey>
 	
+	<copyField source="taxon_id" dest="text"/>
 	<copyField source="taxon_name" dest="text"/>
 	<copyField source="description" dest="text"/>
 	
