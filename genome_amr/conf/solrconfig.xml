@@ -81,7 +81,7 @@
 			<str name="spellcheck.dictionary">default</str>
 			<str name="spellcheck.count">1</str>
 			<str name="q.op">AND</str>
-			<str name="fl">id,genome_id,genome_name,taxon_id,antibiotic,resistant_phenotype,measurement,measurement_sign,measurement_value,measurement_unit,laboratory_typing_method,laboratory_typing_method_version,laboratory_typing_platform,vendor,testing_standard,testing_standard_year,source,date_inserted,date_modified</str>
+			<str name="fl">id,genome_id,genome_name,taxon_id,antibiotic,resistant_phenotype,measurement,measurement_sign,measurement_value,measurement_unit,laboratory_typing_method,laboratory_typing_method_version,laboratory_typing_platform,vendor,computational_method,computational_method_version,computational_method_performance,testing_standard,testing_standard_year,source,pmid,evidence,date_inserted,date_modified</str>
 		</lst>
 	</requestHandler>
 
